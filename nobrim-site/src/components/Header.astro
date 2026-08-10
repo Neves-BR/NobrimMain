@@ -18,8 +18,7 @@ const navLinks = isPt
 <header class="site-header" role="banner">
   <div class="container header-container">
     <a href={isPt ? '/' : '/en/'} class="logo-link" aria-label="Nobrim Home">
-      <!-- Remova width/height fixos se o logo não for 3.5:1 -->
-      <img src="/logo-nobrim.webp" alt="Nobrim" height="140" loading="eager" />
+      <img src="/logo-nobrim.webp" alt="Nobrim" loading="eager" />
     </a>
 
     <button
@@ -97,12 +96,10 @@ const navLinks = isPt
       setOpen(!nav.classList.contains('open'));
     });
 
-    // Fecha ao clicar em qualquer link
     links?.forEach((link) => {
       link.addEventListener('click', () => setOpen(false));
     });
 
-    // Fecha com Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && nav.classList.contains('open')) {
         setOpen(false);
@@ -113,10 +110,6 @@ const navLinks = isPt
 </script>
 
 <style>
-  /* ============================================================
-     HEADER — Otimizado para Mobile/Desktop
-     ============================================================ */
-
   .site-header {
     position: sticky;
     top: 0;
@@ -135,7 +128,7 @@ const navLinks = isPt
     gap: var(--space-4);
   }
 
-  /* Logo */
+  /* LOGO — Aumentado para legibilidade */
   .logo-link {
     display: flex;
     align-items: center;
@@ -144,11 +137,9 @@ const navLinks = isPt
 
   .logo-link img {
     width: auto;
-    height: 40px;
-    max-width: 140px;
+    height: 56px;          /* ↑ Antes: 40px — muito pequeno */
+    max-width: 200px;      /* ↑ Antes: 140px */
     object-fit: contain;
-    /* Remova o filter abaixo se o logo já for branco */
-    /* filter: brightness(0) invert(1); */
   }
 
   /* Navegação Desktop */
@@ -222,7 +213,7 @@ const navLinks = isPt
 
   .lang-selector a {
     padding: var(--space-1) var(--space-2);
-    color: rgba(255, 255, 255, 0.75); /* ← melhor contraste */
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
@@ -250,10 +241,7 @@ const navLinks = isPt
     font-size: var(--text-sm);
   }
 
-  /* ============================================================
-     MENU MOBILE (Hambúrguer)
-     ============================================================ */
-
+  /* MENU MOBILE (Hambúrguer) */
   .menu-toggle {
     display: none;
     flex-direction: column;
@@ -295,10 +283,7 @@ const navLinks = isPt
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* ============================================================
-     RESPONSIVIDADE
-     ============================================================ */
-
+  /* RESPONSIVIDADE */
   @media (max-width: 1023px) {
     .header-actions .btn-primary {
       display: none;
@@ -312,7 +297,7 @@ const navLinks = isPt
 
     .menu-toggle {
       display: flex;
-      z-index: 101; /* ← acima do menu */
+      z-index: 101;
     }
 
     .nav-list {
@@ -348,9 +333,11 @@ const navLinks = isPt
     }
   }
 
+  /* Mobile pequeno — logo ainda legível */
   @media (max-width: 479px) {
     .logo-link img {
-      height: 32px;
+      height: 48px;        /* ↑ Antes: 32px — muito pequeno */
+      max-width: 160px;    /* ↑ Antes: não tinha limite específico */
     }
 
     .lang-selector a {
