@@ -2,7 +2,7 @@
 
 :root {
   /* Cores institucionais Nobrim */
-  --bg-primary: #001a3a;
+  --bg-primary: #F8FAFC;
   --bg-primary-alt: #FFFFFF;
   --bg-secondary: #F1F5F9;
   --text-primary: #001A3A;
@@ -30,7 +30,7 @@
 }
 
 body {
-  background-color: var(--bg-primary);
+  background-color: #001A3A;
   color: var(--text-primary);
   font-family: var(--font-primary);
   line-height: 1.6;
