@@ -1,3 +1,4 @@
+---
 const { lang = 'pt-BR' } = Astro.props;
 
 const isPt = lang === 'pt-BR';
@@ -43,6 +44,7 @@ const contatoItems = [
   { label: isPt ? 'E-mail' : 'Email', value: 'contato@nobrim.com.br' },
   { label: isPt ? 'Endereco' : 'Address', value: isPt ? 'Salvador, BA - Brasil' : 'Salvador, BA - Brazil' },
 ];
+---
 
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-container">
