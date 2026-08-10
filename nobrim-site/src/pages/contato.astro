@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "mainEntity": {
+    "@type": "ContactPoint",
+    "telephone": "+55-11-99999-9999",
+    "contactType": "sales",
+    "email": "contato@nobrim.com.br",
+    "areaServed": "BR",
+    "availableLanguage": "Portuguese"
+  }
+};
+---
+
+<BaseLayout 
+  title="Fale Conosco" 
+  description="Agende um diagnóstico com a equipe da Nobrim Soluções Corporativas."
+  lang="pt-BR"
+  schema={contactSchema}
+>
+  <Header lang="pt-BR" />
+  
+  <main class="page-container py-20">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h1>Vamos conversar sobre o seu negócio</h1>
+        <p class="subtitle max-w-2xl mx-auto">
+          Preencha o formulário abaixo ou utilize nossos canais diretos. Um de nossos sócios entrará em contato para agendar uma reunião de alinhamento em até 24 horas.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="info-block">
+            <h3>Nossos Contatos</h3>
+            <p><strong>E-mail:</strong> comercial@nobrim.com.br</p>
+            <p><strong>Telefone:</strong> (11) 99999-9999</p>
+          </div>
+          
+          <div class="info-block mt-8">
+            <h3>Escritório Matriz</h3>
+            <p class="text-secondary">
+              Av. Engenheiro Luís Carlos Berrini, 1500<br/>
+              Conjunto 112 - Cidade Monções<br/>
+              São Paulo, SP - CEP 04571-000<br/>
+              Brasil
+            </p>
+          </div>
+
+          <div class="info-block mt-8">
+            <h3>Horário de Atendimento</h3>
+            <p class="text-secondary">Segunda a Sexta: 09h às 18h<br/>(Horário de Brasília)</p>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .py-20 { padding: 80px 0; }
+  .contact-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 64px; 
+    align-items: start;
+    background-color: var(--bg-secondary);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+  }
+  .info-block h3 { margin-bottom: 12px; font-size: 1.25rem; }
+  .info-block p { margin-bottom: 8px; line-height: 1.6; }
+  .mt-8 { margin-top: 32px; }
+  .subtitle { font-size: 1.125rem; color: var(--text-secondary); margin-top: 16px; }
+  
+  @media (max-width: 768px) { 
+    .contact-grid { 
+      grid-template-columns: 1fr; 
+      padding: 24px;
+    } 
+  }
+</style>

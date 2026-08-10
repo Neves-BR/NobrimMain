@@ -1,0 +1,96 @@
+---
+const { lang = 'pt-BR' } = Astro.props;
+const isPt = lang === 'pt-BR';
+
+const navLinks = isPt 
+  ? [
+      { name: 'Sobre', url: '/sobre' },
+      { name: 'Serviços', url: '/servicos' },
+      { name: 'Cases', url: '/cases' },
+      { name: 'Blog', url: '/blog' }
+    ]
+  : [
+      { name: 'About', url: '/en/about' },
+      { name: 'Services', url: '/en/services' },
+      { name: 'Cases', url: '/en/cases' },
+      { name: 'Blog', url: '/en/blog' }
+    ];
+---
+
+<header class="site-header" role="banner">
+  <div class="container header-container">
+    <a href={isPt ? "/" : "/en/"} class="logo-link" aria-label="Nobrim Home">
+      <img src="/assets/logo-placeholder.webp" alt="Nobrim Logo" width="140" height="40" />
+    </a>
+
+    <nav aria-label="Navegação Principal">
+      <ul class="nav-list">
+        {navLinks.map(link => (
+          <li><a href={link.url} class="nav-item">{link.name}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-selector">
+        <a href="/" class={isPt ? "active" : ""} aria-label="Mudar para Português">PT</a>
+        <span aria-hidden="true">|</span>
+        <a href="/en/" class={!isPt ? "active" : ""} aria-label="Switch to English">EN</a>
+      </div>
+      <a href={isPt ? "/contato" : "/en/contact"} class="btn-primary">
+        {isPt ? "Fale Conosco" : "Contact Us"}
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background-color: var(--bg-primary-alt);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .nav-list {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-item {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+  .nav-item:hover { color: var(--accent-primary); }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .lang-selector {
+    display: flex;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .lang-selector a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+  .lang-selector a.active { color: var(--text-primary); }
+  .lang-selector a:hover { color: var(--accent-primary); }
+</style>

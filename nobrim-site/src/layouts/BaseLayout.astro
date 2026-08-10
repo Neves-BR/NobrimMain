@@ -1,0 +1,73 @@
+---
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: 'pt-BR' | 'en';
+  schema?: Record<string, any>;
+  ogType?: 'website' | 'article';
+}
+
+const { 
+  title, 
+  description, 
+  lang = 'pt-BR', 
+  schema,
+  ogType = 'website'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://nobrim.vercel.app');
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Nobrim Soluções Corporativas</title>
+    <meta name="description" content={description} />
+    
+    <!-- Canonical & Alternate Langs -->
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="pt-BR" href="https://nobrim.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://nobrim.vercel.app/en/" />
+    
+    <!-- Preconnect & DNS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://nobrim.vercel.app" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Nobrim Soluções Corporativas" />
+    <meta property="og:image" content="/assets/og-image.webp" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Schema.org JSON-LD -->
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link sr-only">Pular para o conteúdo</a>
+    
+    <!-- Componente de Header será inserido aqui -->
+    
+    <main id="main-content" role="main">
+      <slot />
+    </main>
+    
+    <!-- Componente de Footer será inserido aqui -->
+
+    <Analytics client:idle />
+    <SpeedInsights />
+  </body>
+</html>

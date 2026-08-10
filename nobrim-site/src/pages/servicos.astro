@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Consultoria de Gestão Empresarial",
+  "provider": {
+    "@type": "Organization",
+    "name": "Nobrim Soluções Corporativas"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Serviços de Consultoria B2B",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico Organizacional" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão de Performance" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mapeamento de Processos" } }
+    ]
+  }
+};
+---
+
+<BaseLayout 
+  title="Nossos Serviços" 
+  description="Soluções completas em diagnóstico organizacional, gestão de performance e eficiência de processos."
+  lang="pt-BR"
+  schema={servicesSchema}
+>
+  <Header lang="pt-BR" />
+  
+  <main class="page-container py-20">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h1>Áreas de Especialidade</h1>
+        <p class="subtitle max-w-2xl mx-auto">
+          Atuamos de ponta a ponta na sua empresa, desde a concepção estratégica até a implantação de rotinas no nível operacional.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <ServiceCard 
+          title="Diagnóstico Organizacional" 
+          description="Auditoria profunda da estrutura da empresa, identificando sobreposições, ineficiências de custo e oportunidades de ganho de margem." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Gestão de Performance (OKR/KPI)" 
+          description="Desdobramento da estratégia em metas claras para todos os níveis, com criação de dashboards para acompanhamento executivo." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Otimização de Processos (BPM)" 
+          description="Redesenho de fluxos de trabalho visando eliminar gargalos, reduzir o tempo de ciclo e padronizar a execução das equipes." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Planejamento Estratégico" 
+          description="Construção da visão de longo prazo da empresa, definição de posicionamento de mercado e estruturação do plano de ação anual." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Governança Corporativa" 
+          description="Estruturação de conselhos, acordos de acionistas e políticas internas para preparar a empresa para sucessão ou captação de recursos." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Turnaround & Reestruturação" 
+          description="Planos de ação emergenciais para adequação de fluxo de caixa, renegociação de passivos e estabilização de operações em crise." 
+          linkUrl="/contato" 
+        />
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .py-20 { padding: 80px 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+  .subtitle { font-size: 1.125rem; color: var(--text-secondary); margin-top: 16px; }
+</style>

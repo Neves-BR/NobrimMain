@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+// Schema.org para a Home (Organization e WebSite)
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nobrim.vercel.app/#organization",
+      "name": "Nobrim Soluções Corporativas",
+      "url": "https://nobrim.vercel.app",
+      "logo": "https://nobrim.vercel.app/assets/logo-placeholder.webp",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-0000-0000",
+        "contactType": "customer service",
+        "availableLanguage": ["Portuguese", "English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nobrim.vercel.app/#website",
+      "url": "https://nobrim.vercel.app",
+      "name": "Nobrim",
+      "publisher": {
+        "@id": "https://nobrim.vercel.app/#organization"
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout 
+  title="Consultoria Estratégica e Gestão" 
+  description="A Nobrim transforma a complexidade do seu negócio em resultados mensuráveis através de consultoria especializada em gestão e processos."
+  lang="pt-BR"
+  schema={homeSchema}
+>
+  <!-- 1. Hero Section -->
+  <Hero />
+
+  <!-- 2. Social Proof (Logos) -->
+  <section class="social-proof-section">
+    <div class="container text-center">
+      <p class="text-secondary text-sm font-semibold uppercase tracking-wider mb-6">Empresas que confiam em nossa metodologia</p>
+      <div class="logos-grid">
+        <!-- Placeholders para os logos dos clientes -->
+        <img src="/assets/logo-client-1.webp" alt="Cliente corporativo 1" width="120" height="40" loading="lazy" />
+        <img src="/assets/logo-client-2.webp" alt="Cliente corporativo 2" width="120" height="40" loading="lazy" />
+        <img src="/assets/logo-client-3.webp" alt="Cliente corporativo 3" width="120" height="40" loading="lazy" />
+        <img src="/assets/logo-client-4.webp" alt="Cliente corporativo 4" width="120" height="40" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Serviços Overview (Placeholder da estrutura) -->
+  <section class="services-section bg-secondary py-20">
+    <div class="container">
+      <div class="section-header text-center mb-12">
+        <h2>Áreas de Atuação</h2>
+        <p>Expertise direcionada para os desafios mais críticos da sua empresa.</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Exemplo de Card de Serviço direto no HTML para validação rápida -->
+        <div class="card">
+          <h3>Diagnóstico Organizacional</h3>
+          <p>Mapeamento completo da sua estrutura atual para identificar ineficiências, sobreposições de funções e oportunidades de corte de custos operacionais.</p>
+          <a href="/servicos" class="text-accent mt-4 inline-block font-semibold">Saiba mais &rarr;</a>
+        </div>
+        <div class="card">
+          <h3>Gestão de Performance</h3>
+          <p>Implementação de OKRs e KPIs estratégicos, garantindo que todos os níveis da empresa estejam alinhados aos objetivos de longo prazo da diretoria.</p>
+          <a href="/servicos" class="text-accent mt-4 inline-block font-semibold">Saiba mais &rarr;</a>
+        </div>
+        <div class="card">
+          <h3>Transformação de Processos</h3>
+          <p>Redesenho de fluxos de trabalho (BPM) para aumentar a agilidade produtiva e garantir a padronização e escalabilidade do modelo de negócio.</p>
+          <a href="/servicos" class="text-accent mt-4 inline-block font-semibold">Saiba mais &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA Final -->
+  <section class="cta-section py-20 text-center">
+    <div class="container">
+      <h2>Pronto para otimizar sua operação?</h2>
+      <p class="mb-8 max-w-2xl mx-auto">Fale com um de nossos especialistas e descubra como a Nobrim pode estruturar um plano de ação sob medida para a sua realidade.</p>
+      <a href="/contato" class="btn-primary">Solicitar Contato Comercial</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Classes utilitárias rápidas para a Home */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .text-center { text-align: center; }
+  .py-20 { padding-top: 80px; padding-bottom: 80px; }
+  .mb-6 { margin-bottom: 24px; }
+  .mb-8 { margin-bottom: 32px; }
+  .mb-12 { margin-bottom: 48px; }
+  .mt-4 { margin-top: 16px; }
+  .max-w-2xl { max-width: 42rem; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .text-secondary { color: var(--text-secondary); }
+  .text-accent { color: var(--accent-primary); }
+  .font-semibold { font-weight: 600; }
+  .uppercase { text-transform: uppercase; }
+  .tracking-wider { letter-spacing: 0.05em; }
+  .bg-secondary { background-color: var(--bg-secondary); }
+
+  .social-proof-section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .logos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: filter var(--transition-base), opacity var(--transition-base);
+  }
+
+  .logos-grid:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+</style>
