@@ -1,6 +1,5 @@
 ---
-import Analytics from '@vercel/analytics/astro';
-import SpeedInsights from '@vercel/speed-insights/astro';
+import Analytics from '@vercel/analytics/astro'
 import '../styles/global.css';
 
 interface Props {
@@ -68,6 +67,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://nobrim.v
     <!-- Componente de Footer será inserido aqui -->
 
     <Analytics />
-    <SpeedInsights />
   </body>
 </html>
