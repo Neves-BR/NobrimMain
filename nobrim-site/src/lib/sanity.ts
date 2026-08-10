@@ -1,14 +1,12 @@
-import { createClient } from '@sanity/client';
+// Dublê do Sanity (Mock) para destravar o site institucional
+// Nenhuma biblioteca real está sendo importada aqui.
 
-export const sanityClient = createClient({
-  // String falsa temporária. O SDK só precisa que isso não seja vazio para não quebrar o build.
-  projectId: '12345678', 
-  dataset: 'production',
-  useCdn: false,
-  apiVersion: '2024-03-01',
-});
+export const sanityClient = {
+  fetch: async () => {
+    return []; // Retorna sempre vazio, não importa quem chame
+  }
+};
 
-// Retorna uma array vazia para não quebrar nenhuma página que por acaso tente rodar essa função
-export async function getPosts(lang: string = 'pt-BR') {
-  return []; 
+export async function getPosts() {
+  return [];
 }
