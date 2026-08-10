@@ -1,70 +1,52 @@
 const { lang = 'pt-BR' } = Astro.props;
 
-let footerLinks;
-let footerTagline;
+const isPt = lang === 'pt-BR';
 
-if (lang === 'pt-BR') {
-  footerLinks = {
-    empresaTitle: 'Empresa',
-    empresaLinks: [
+const empresaTitle = isPt ? 'Empresa' : 'Company';
+const servicosTitle = isPt ? 'Servicos' : 'Services';
+const contatoTitle = isPt ? 'Contato' : 'Contact';
+const copyright = isPt ? '© 2026 Nobrim - Solucoes corporativas. Todos os direitos reservados.' : '© 2026 Nobrim - Corporative solutions. All rights reserved.';
+const developedBy = isPt ? 'Desenvolvido por' : 'Developed by';
+const footerTagline = isPt ? 'Transformamos a complexidade do seu negocio em resultados mensuraveis atraves de consultoria especializada.' : 'We transform your business complexity into measurable results through specialized consulting.';
+const homeUrl = isPt ? '/' : '/en/';
+
+const empresaLinks = isPt
+  ? [
       { name: 'Sobre', url: '/sobre' },
-      { name: 'Serviços', url: '/servicos' },
+      { name: 'Servicos', url: '/servicos' },
       { name: 'Cases', url: '/cases' },
       { name: 'Contato', url: '/contato' },
-    ],
-    servicosTitle: 'Serviços',
-    servicosLinks: [
-      { name: 'Diagnóstico Organizacional', url: '/servicos' },
-      { name: 'Gestão de Performance', url: '/servicos' },
-      { name: 'Transformação de Processos', url: '/servicos' },
-      { name: 'Consultoria Estratégica', url: '/servicos' },
-    ],
-    contatoTitle: 'Contato',
-    contatoItems: [
-      { label: 'Telefone', value: '+55 (71) 9320-6081' },
-      { label: 'E-mail', value: 'contato@nobrim.com.br' },
-      { label: 'Endereço', value: 'Salvador, BA - Brasil' },
-    ],
-    copyright: '© 2026 Nobrim - Soluções corporativas. Todos os direitos reservados.',
-    developedBy: 'Desenvolvido por',
-  };
-  footerTagline = 'Transformamos a complexidade do seu negócio em resultados mensuráveis através de consultoria especializada.';
-} else {
-  footerLinks = {
-    empresaTitle: 'Company',
-    empresaLinks: [
+    ]
+  : [
       { name: 'About', url: '/en/about' },
       { name: 'Services', url: '/en/services' },
       { name: 'Cases', url: '/en/cases' },
       { name: 'Contact', url: '/en/contact' },
-    ],
-    servicosTitle: 'Services',
-    servicosLinks: [
+    ];
+
+const servicosLinks = isPt
+  ? [
+      { name: 'Diagnostico Organizacional', url: '/servicos' },
+      { name: 'Gestao de Performance', url: '/servicos' },
+      { name: 'Transformacao de Processos', url: '/servicos' },
+      { name: 'Consultoria Estrategica', url: '/servicos' },
+    ]
+  : [
       { name: 'Organizational Diagnosis', url: '/en/services' },
       { name: 'Performance Management', url: '/en/services' },
       { name: 'Process Transformation', url: '/en/services' },
       { name: 'Strategic Consulting', url: '/en/services' },
-    ],
-    contatoTitle: 'Contact',
-    contatoItems: [
-      { label: 'Phone', value: '+55 (71) 9320-6081' },
-      { label: 'Email', value: 'contato@nobrim.com.br' },
-      { label: 'Address', value: 'Salvador, BA - Brazil' },
-    ],
-    copyright: '© 2026 Nobrim - Corporative solutions. All rights reserved.',
-    developedBy: 'Developed by',
-  };
-  footerTagline = 'We transform your business complexity into measurable results through specialized consulting.';
-}
+    ];
 
-const homeUrl = lang === 'pt-BR' ? '/' : '/en/';
----
+const contatoItems = [
+  { label: isPt ? 'Telefone' : 'Phone', value: '+55 (71) 9320-6081' },
+  { label: isPt ? 'E-mail' : 'Email', value: 'contato@nobrim.com.br' },
+  { label: isPt ? 'Endereco' : 'Address', value: isPt ? 'Salvador, BA - Brasil' : 'Salvador, BA - Brazil' },
+];
 
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-container">
-    <!-- Top Section: Logo + Links -->
     <div class="footer-top">
-      <!-- Logo & Description -->
       <div class="footer-brand">
         <a href={homeUrl} class="logo-link" aria-label="Nobrim Home">
           <img src="/logo-nobrim.webp" alt="Nobrim Logo" width="80" height="80" loading="lazy" />
@@ -72,30 +54,29 @@ const homeUrl = lang === 'pt-BR' ? '/' : '/en/';
         <p class="footer-tagline">{footerTagline}</p>
       </div>
 
-      <!-- Navigation Links -->
       <div class="footer-nav">
         <div class="footer-nav-column">
-          <h4>{footerLinks.empresaTitle}</h4>
+          <h4>{empresaTitle}</h4>
           <ul>
-            {footerLinks.empresaLinks.map((link) => (
+            {empresaLinks.map((link) => (
               <li><a href={link.url}>{link.name}</a></li>
             ))}
           </ul>
         </div>
 
         <div class="footer-nav-column">
-          <h4>{footerLinks.servicosTitle}</h4>
+          <h4>{servicosTitle}</h4>
           <ul>
-            {footerLinks.servicosLinks.map((link) => (
+            {servicosLinks.map((link) => (
               <li><a href={link.url}>{link.name}</a></li>
             ))}
           </ul>
         </div>
 
         <div class="footer-nav-column">
-          <h4>{footerLinks.contatoTitle}</h4>
+          <h4>{contatoTitle}</h4>
           <ul class="contact-list">
-            {footerLinks.contatoItems.map((item) => (
+            {contatoItems.map((item) => (
               <li>
                 <span class="contact-label">{item.label}:</span>
                 <span class="contact-value">{item.value}</span>
@@ -106,13 +87,12 @@ const homeUrl = lang === 'pt-BR' ? '/' : '/en/';
       </div>
     </div>
 
-    <!-- Bottom Section: Copyright + WeeMake -->
     <div class="footer-bottom">
-      <p class="copyright-text">{footerLinks.copyright}</p>
+      <p class="copyright-text">{copyright}</p>
       <div class="developed-by">
-        <span>{footerLinks.developedBy}</span>
-        <a href="https://www.weemake.com.br" target="_blank" rel="noopener noreferrer" aria-label="WeeMake - desenvolvimento web e agência digital">
-          <img src="/images/WeeMake Dark.png" alt="WeeMake - desenvolvimento web e agência digital" width="230" height="50" loading="lazy" />
+        <span>{developedBy}</span>
+        <a href="https://www.weemake.com.br" target="_blank" rel="noopener noreferrer" aria-label="WeeMake - desenvolvimento web e agencia digital">
+          <img src="/images/WeeMake Dark.png" alt="WeeMake - desenvolvimento web e agencia digital" width="230" height="50" loading="lazy" />
         </a>
       </div>
     </div>
@@ -132,7 +112,6 @@ const homeUrl = lang === 'pt-BR' ? '/' : '/en/';
     padding: 0 24px;
   }
 
-  /* Top Section */
   .footer-top {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -214,7 +193,6 @@ const homeUrl = lang === 'pt-BR' ? '/' : '/en/';
     font-size: 0.9rem;
   }
 
-  /* Bottom Section */
   .footer-bottom {
     padding-top: 32px;
     display: flex;
@@ -255,7 +233,6 @@ const homeUrl = lang === 'pt-BR' ? '/' : '/en/';
     display: block;
   }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .footer-top {
       grid-template-columns: 1fr;
