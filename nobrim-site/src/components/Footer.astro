@@ -1,67 +1,63 @@
 const { lang = 'pt-BR' } = Astro.props;
-const isPt = lang === 'pt-BR';
 
-const footerLinks = isPt
-  ? {
-      empresa: {
-        title: 'Empresa',
-        links: [
-          { name: 'Sobre', url: '/sobre' },
-          { name: 'Serviços', url: '/servicos' },
-          { name: 'Cases', url: '/cases' },
-          { name: 'Contato', url: '/contato' },
-        ],
-      },
-      servicos: {
-        title: 'Serviços',
-        links: [
-          { name: 'Diagnóstico Organizacional', url: '/servicos' },
-          { name: 'Gestão de Performance', url: '/servicos' },
-          { name: 'Transformação de Processos', url: '/servicos' },
-          { name: 'Consultoria Estratégica', url: '/servicos' },
-        ],
-      },
-      contato: {
-        title: 'Contato',
-        items: [
-          { label: 'Telefone', value: '+55 (71) 9320-6081' },
-          { label: 'E-mail', value: 'contato@nobrim.com.br' },
-          { label: 'Endereço', value: 'Salvador, BA - Brasil' },
-        ],
-      },
-      copyright: '© 2026 Nobrim - Soluções corporativas. Todos os direitos reservados.',
-      developedBy: 'Desenvolvido por',
-    }
-  : {
-      empresa: {
-        title: 'Company',
-        links: [
-          { name: 'About', url: '/en/about' },
-          { name: 'Services', url: '/en/services' },
-          { name: 'Cases', url: '/en/cases' },
-          { name: 'Contact', url: '/en/contact' },
-        ],
-      },
-      servicos: {
-        title: 'Services',
-        links: [
-          { name: 'Organizational Diagnosis', url: '/en/services' },
-          { name: 'Performance Management', url: '/en/services' },
-          { name: 'Process Transformation', url: '/en/services' },
-          { name: 'Strategic Consulting', url: '/en/services' },
-        ],
-      },
-      contato: {
-        title: 'Contact',
-        items: [
-          { label: 'Phone', value: '+55 (71) 9320-6081' },
-          { label: 'Email', value: 'contato@nobrim.com.br' },
-          { label: 'Address', value: 'Salvador, BA - Brazil' },
-        ],
-      },
-      copyright: '© 2026 Nobrim - Corporative solutions. All rights reserved.',
-      developedBy: 'Developed by https://www.weemake.com.br',
-    };
+let footerLinks;
+let footerTagline;
+
+if (lang === 'pt-BR') {
+  footerLinks = {
+    empresaTitle: 'Empresa',
+    empresaLinks: [
+      { name: 'Sobre', url: '/sobre' },
+      { name: 'Serviços', url: '/servicos' },
+      { name: 'Cases', url: '/cases' },
+      { name: 'Contato', url: '/contato' },
+    ],
+    servicosTitle: 'Serviços',
+    servicosLinks: [
+      { name: 'Diagnóstico Organizacional', url: '/servicos' },
+      { name: 'Gestão de Performance', url: '/servicos' },
+      { name: 'Transformação de Processos', url: '/servicos' },
+      { name: 'Consultoria Estratégica', url: '/servicos' },
+    ],
+    contatoTitle: 'Contato',
+    contatoItems: [
+      { label: 'Telefone', value: '+55 (71) 9320-6081' },
+      { label: 'E-mail', value: 'contato@nobrim.com.br' },
+      { label: 'Endereço', value: 'Salvador, BA - Brasil' },
+    ],
+    copyright: '© 2026 Nobrim - Soluções corporativas. Todos os direitos reservados.',
+    developedBy: 'Desenvolvido por',
+  };
+  footerTagline = 'Transformamos a complexidade do seu negócio em resultados mensuráveis através de consultoria especializada.';
+} else {
+  footerLinks = {
+    empresaTitle: 'Company',
+    empresaLinks: [
+      { name: 'About', url: '/en/about' },
+      { name: 'Services', url: '/en/services' },
+      { name: 'Cases', url: '/en/cases' },
+      { name: 'Contact', url: '/en/contact' },
+    ],
+    servicosTitle: 'Services',
+    servicosLinks: [
+      { name: 'Organizational Diagnosis', url: '/en/services' },
+      { name: 'Performance Management', url: '/en/services' },
+      { name: 'Process Transformation', url: '/en/services' },
+      { name: 'Strategic Consulting', url: '/en/services' },
+    ],
+    contatoTitle: 'Contact',
+    contatoItems: [
+      { label: 'Phone', value: '+55 (71) 9320-6081' },
+      { label: 'Email', value: 'contato@nobrim.com.br' },
+      { label: 'Address', value: 'Salvador, BA - Brazil' },
+    ],
+    copyright: '© 2026 Nobrim - Corporative solutions. All rights reserved.',
+    developedBy: 'Developed by',
+  };
+  footerTagline = 'We transform your business complexity into measurable results through specialized consulting.';
+}
+
+const homeUrl = lang === 'pt-BR' ? '/' : '/en/';
 ---
 
 <footer class="site-footer" role="contentinfo">
@@ -70,40 +66,36 @@ const footerLinks = isPt
     <div class="footer-top">
       <!-- Logo & Description -->
       <div class="footer-brand">
-        <a href={isPt ? "/" : "/en/"} class="logo-link" aria-label="Nobrim Home">
+        <a href={homeUrl} class="logo-link" aria-label="Nobrim Home">
           <img src="/logo-nobrim.webp" alt="Nobrim Logo" width="80" height="80" loading="lazy" />
         </a>
-        <p class="footer-tagline">
-          {isPt
-            ? 'Transformamos a complexidade do seu negócio em resultados mensuráveis através de consultoria especializada.'
-            : 'We transform your business complexity into measurable results through specialized consulting.'}
-        </p>
+        <p class="footer-tagline">{footerTagline}</p>
       </div>
 
       <!-- Navigation Links -->
       <div class="footer-nav">
         <div class="footer-nav-column">
-          <h4>{footerLinks.empresa.title}</h4>
+          <h4>{footerLinks.empresaTitle}</h4>
           <ul>
-            {footerLinks.empresa.links.map(link => (
+            {footerLinks.empresaLinks.map((link) => (
               <li><a href={link.url}>{link.name}</a></li>
             ))}
           </ul>
         </div>
 
         <div class="footer-nav-column">
-          <h4>{footerLinks.servicos.title}</h4>
+          <h4>{footerLinks.servicosTitle}</h4>
           <ul>
-            {footerLinks.servicos.links.map(link => (
+            {footerLinks.servicosLinks.map((link) => (
               <li><a href={link.url}>{link.name}</a></li>
             ))}
           </ul>
         </div>
 
         <div class="footer-nav-column">
-          <h4>{footerLinks.contato.title}</h4>
+          <h4>{footerLinks.contatoTitle}</h4>
           <ul class="contact-list">
-            {footerLinks.contato.items.map(item => (
+            {footerLinks.contatoItems.map((item) => (
               <li>
                 <span class="contact-label">{item.label}:</span>
                 <span class="contact-value">{item.value}</span>
