@@ -1,0 +1,291 @@
+const { lang = 'pt-BR' } = Astro.props;
+const isPt = lang === 'pt-BR';
+
+const footerLinks = isPt
+  ? {
+      empresa: {
+        title: 'Empresa',
+        links: [
+          { name: 'Sobre', url: '/sobre' },
+          { name: 'Serviços', url: '/servicos' },
+          { name: 'Cases', url: '/cases' },
+          { name: 'Contato', url: '/contato' },
+        ],
+      },
+      servicos: {
+        title: 'Serviços',
+        links: [
+          { name: 'Diagnóstico Organizacional', url: '/servicos' },
+          { name: 'Gestão de Performance', url: '/servicos' },
+          { name: 'Transformação de Processos', url: '/servicos' },
+          { name: 'Consultoria Estratégica', url: '/servicos' },
+        ],
+      },
+      contato: {
+        title: 'Contato',
+        items: [
+          { label: 'Telefone', value: '+55 (71) 9320-6081' },
+          { label: 'E-mail', value: 'contato@nobrim.com.br' },
+          { label: 'Endereço', value: 'Salvador, BA - Brasil' },
+        ],
+      },
+      copyright: '© 2026 FASUL - Faculdade de Ensino Superior. Todos os direitos reservados.',
+      developedBy: 'Desenvolvido por',
+    }
+  : {
+      empresa: {
+        title: 'Company',
+        links: [
+          { name: 'About', url: '/en/about' },
+          { name: 'Services', url: '/en/services' },
+          { name: 'Cases', url: '/en/cases' },
+          { name: 'Contact', url: '/en/contact' },
+        ],
+      },
+      servicos: {
+        title: 'Services',
+        links: [
+          { name: 'Organizational Diagnosis', url: '/en/services' },
+          { name: 'Performance Management', url: '/en/services' },
+          { name: 'Process Transformation', url: '/en/services' },
+          { name: 'Strategic Consulting', url: '/en/services' },
+        ],
+      },
+      contato: {
+        title: 'Contact',
+        items: [
+          { label: 'Phone', value: '+55 (71) 9320-6081' },
+          { label: 'Email', value: 'contato@nobrim.com.br' },
+          { label: 'Address', value: 'Salvador, BA - Brazil' },
+        ],
+      },
+      copyright: '© 2026 Nobrim - Soluções corporativas. All rights reserved.',
+      developedBy: 'Developed by https://www.weemake.com.br',
+    };
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-container">
+    <!-- Top Section: Logo + Links -->
+    <div class="footer-top">
+      <!-- Logo & Description -->
+      <div class="footer-brand">
+        <a href={isPt ? "/" : "/en/"} class="logo-link" aria-label="Nobrim Home">
+          <img src="/logo-nobrim.webp" alt="Nobrim Logo" width="80" height="80" loading="lazy" />
+        </a>
+        <p class="footer-tagline">
+          {isPt
+            ? 'Transformamos a complexidade do seu negócio em resultados mensuráveis através de consultoria especializada.'
+            : 'We transform your business complexity into measurable results through specialized consulting.'}
+        </p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="footer-nav">
+        <div class="footer-nav-column">
+          <h4>{footerLinks.empresa.title}</h4>
+          <ul>
+            {footerLinks.empresa.links.map(link => (
+              <li><a href={link.url}>{link.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h4>{footerLinks.servicos.title}</h4>
+          <ul>
+            {footerLinks.servicos.links.map(link => (
+              <li><a href={link.url}>{link.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h4>{footerLinks.contato.title}</h4>
+          <ul class="contact-list">
+            {footerLinks.contato.items.map(item => (
+              <li>
+                <span class="contact-label">{item.label}:</span>
+                <span class="contact-value">{item.value}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Copyright + WeeMake -->
+    <div class="footer-bottom">
+      <p class="copyright-text">{footerLinks.copyright}</p>
+      <div class="developed-by">
+        <span>{footerLinks.developedBy}</span>
+        <a href="https://www.weemake.com.br" target="_blank" rel="noopener noreferrer" aria-label="WeeMake - desenvolvimento web e agência digital">
+          <img src="/images/WeeMake Dark.png" alt="WeeMake - desenvolvimento web e agência digital" width="230" height="50" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--bg-primary-alt);
+    color: white;
+    padding: 64px 0 32px;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Top Section */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-brand .logo-link img {
+    width: 80px;
+    height: auto;
+  }
+
+  .footer-tagline {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .footer-nav-column h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-nav-column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav-column a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-nav-column a:hover {
+    color: var(--accent-primary);
+  }
+
+  .contact-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-value {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+  }
+
+  /* Bottom Section */
+  .footer-bottom {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .copyright-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .developed-by {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+  }
+
+  .developed-by a {
+    display: inline-flex;
+    align-items: center;
+    transition: opacity var(--transition-fast);
+  }
+
+  .developed-by a:hover {
+    opacity: 0.8;
+  }
+
+  .developed-by img {
+    width: 230px;
+    height: auto;
+    display: block;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .footer-nav {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-tagline {
+      max-width: 100%;
+    }
+
+    .developed-by {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .developed-by img {
+      width: 180px;
+    }
+  }
+</style>
