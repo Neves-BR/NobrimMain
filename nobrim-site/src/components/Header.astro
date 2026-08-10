@@ -128,7 +128,7 @@ const navLinks = isPt
     gap: var(--space-4);
   }
 
-  /* LOGO — Aumentado para legibilidade */
+  /* LOGO */
   .logo-link {
     display: flex;
     align-items: center;
@@ -137,8 +137,8 @@ const navLinks = isPt
 
   .logo-link img {
     width: auto;
-    height: 56px;          /* ↑ Antes: 40px — muito pequeno */
-    max-width: 200px;      /* ↑ Antes: 140px */
+    height: 150px;         /* Desktop: 150px */
+    max-width: 400px;
     object-fit: contain;
   }
 
@@ -333,11 +333,11 @@ const navLinks = isPt
     }
   }
 
-  /* Mobile pequeno — logo ainda legível */
+  /* Mobile pequeno — proporcional ao desktop (75%) */
   @media (max-width: 479px) {
     .logo-link img {
-      height: 48px;        /* ↑ Antes: 32px — muito pequeno */
-      max-width: 160px;    /* ↑ Antes: não tinha limite específico */
+      height: 112px;       /* 150px * 0.75 = 112px */
+      max-width: 300px;
     }
 
     .lang-selector a {
