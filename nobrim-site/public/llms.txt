@@ -1,70 +1,92 @@
 # Nobrim Soluções Corporativas
 
-> Consultoria estratégica focada em diagnóstico organizacional, gestão de performance e eficiência operacional. Transformamos a complexidade do seu negócio em resultados mensuráveis.
+> A Nobrim Soluções Corporativas é uma consultoria empresarial brasileira especializada em diagnóstico organizacional, gestão de performance, otimização de processos, planejamento estratégico, governança corporativa e reestruturação empresarial.
 
 ## Sobre
 
-A Nobrim Soluções Corporativas atua lado a lado com a alta gestão de empresas para identificar gargalos, reestruturar fluxos e implementar métricas que refletem a realidade do negócio. Nossa missão é destravar o valor latente nas operações de nossos clientes.
+A Nobrim Soluções Corporativas atua junto à alta gestão de empresas para identificar gargalos, estruturar processos, estabelecer indicadores de desempenho e apoiar decisões estratégicas.
 
-Nossos valores fundamentais são:
+A empresa trabalha com foco em soluções aplicáveis, diagnósticos baseados em fatos e resultados mensuráveis.
+
+Seus valores fundamentais são:
+
 - **Pragmatismo:** Soluções aplicáveis, não apenas teóricas
 - **Transparência:** Diagnósticos francos e baseados em fatos
-- **Foco em Resultados:** Cada ação deve impactar a última linha do balanço
+- **Foco em Resultados:** Cada ação deve buscar impacto mensurável nos resultados do negócio
 
-## Contato
+## Localização e atuação
 
-- **E-mail:** contato@nobrim.com.br
-- **Telefone:** +55 (71) 9285-8821
-- **Escritório Matriz:** Rua Francisco Drumond, 41, Centro, Camaçari, BA - CEP 42800-970, Brasil
-- **Horário de Atendimento:** Com agendamento
+- **Sede:** Camaçari, Bahia, Brasil
+- **Área de atuação:** Brasil
+- **Atendimento:** Com agendamento
+
+## Clientes
+
+A Nobrim atende empresas que buscam melhorar sua eficiência operacional, estruturar sua gestão, estabelecer indicadores de performance, revisar processos ou conduzir períodos de crescimento, reestruturação ou sucessão empresarial.
+
+## Especialidades
+
+- Diagnóstico organizacional
+- Gestão estratégica
+- Gestão de performance
+- OKRs e KPIs
+- Gestão e otimização de processos
+- Business Process Management (BPM)
+- Planejamento estratégico
+- Governança corporativa
+- Eficiência operacional
+- Gestão de custos
+- Reestruturação empresarial
+- Turnaround
 
 ## Serviços
 
 ### Diagnóstico Organizacional
-Auditoria profunda da estrutura da empresa, identificando sobreposições, ineficiências de custo e oportunidades de ganho de margem.
 
-### Gestão de Performance (OKR/KPI)
-Desdobramento da estratégia em metas claras para todos os níveis, com criação de dashboards para acompanhamento executivo.
+Análise estruturada da organização para identificar gargalos, sobreposições, ineficiências, riscos e oportunidades de melhoria.
+
+### Gestão de Performance
+
+Desdobramento da estratégia em objetivos, metas e indicadores de desempenho, incluindo estruturação de KPIs, OKRs e dashboards executivos.
 
 ### Otimização de Processos (BPM)
-Redesenho de fluxos de trabalho visando eliminar gargalos, reduzir o tempo de ciclo e padronizar a execução das equipes.
+
+Análise e redesenho de processos utilizando conceitos de Business Process Management (BPM) para eliminar gargalos, reduzir tempos de ciclo, melhorar a eficiência e padronizar a execução operacional.
 
 ### Planejamento Estratégico
-Construção da visão de longo prazo da empresa, definição de posicionamento de mercado e estruturação do plano de ação anual.
+
+Definição de objetivos estratégicos, prioridades, posicionamento e planos de ação para orientar a execução da estratégia empresarial.
 
 ### Governança Corporativa
-Estruturação de conselhos, acordos de acionistas e políticas internas para preparar a empresa para sucessão ou capitação de recursos.
 
-### Turnaround & Reestruturação
-Planos de ação emergenciais para adequação de fluxo de caixa, renegociação de passivos e estabilização de operações em crise.
+Estruturação de mecanismos de governança, políticas internas e processos decisórios, incluindo preparação para sucessão empresarial ou captação de recursos.
+
+### Turnaround e Reestruturação
+
+Estruturação de planos de ação para empresas que enfrentam dificuldades financeiras, operacionais ou organizacionais, incluindo revisão de processos, custos, fluxo de caixa e prioridades estratégicas.
 
 ## Cases de Sucesso
 
-### Indústria Vektor (Manufatura)
-- **Desafio:** Altos custos de produção devido a ineficiências no chão de fábrica e falta de padronização
-- **Resultado:** Redução de 18% nos custos operacionais em 6 meses através da implantação de Lean Manufacturing
+Os estudos de caso da Nobrim apresentam desafios empresariais, abordagens utilizadas e resultados obtidos em diferentes contextos organizacionais.
 
-### Agro Logística Sul (Operações e Logística)
-- **Desafio:** Falta de visibilidade na cadeia de suprimentos e altos custos de frete no transporte de matéria-prima das fazendas
-- **Resultado:** Otimização das rotas de escoamento e implantação de controles sistêmicos, reduzindo o tempo de trânsito em 22%
-
-### TechSolve S.A. (Tecnologia B2B)
-- **Desafio:** Crescimento desordenado causando atrito entre as áreas de Vendas e CS (Customer Success)
-- **Resultado:** Redesenho da jornada do cliente e alinhamento de KPIs (SLA), aumentando a retenção de clientes em 35%
-
-### Grupo Varejista Alfa (Varejo)
-- **Desafio:** Excesso de estoque descentralizado e rupturas nas gôndolas das principais filiais
-- **Resultado:** Centralização do S&OP (Planejamento de Vendas e Operações), diminuindo o capital de giro retido em R$ 4 milhões
+Para informações detalhadas sobre os projetos e seus resultados, consulte a página de Cases.
 
 ## Liderança
 
-- **Jozelia Pereira** — Fundadora & CEO
+- **Jozelia Pereira** — Fundadora e CEO da Nobrim Soluções Corporativas
 
 ## Documentação
 
-- [Home](https://www.nobrim.com.br/) — Consultoria Estratégica e Gestão
-- [Sobre](https://www.nobrim.com.br/sobre) — Nossa História, Missão e Valores
-- [Serviços](https://www.nobrim.com.br/servicos) — Áreas de Especialidade
-- [Cases](https://www.nobrim.com.br/cases) — Histórias de Transformação
-- [Contato](https://www.nobrim.com.br/contato) — Fale Conosco
-- [Blog](https://www.nobrim.com.br/blog) — Insights Estratégicos
+- [Home](https://www.nobrim.com.br/) — Informações institucionais e posicionamento da Nobrim
+- [Sobre](https://www.nobrim.com.br/sobre) — História, missão e valores
+- [Serviços](https://www.nobrim.com.br/servicos) — Soluções e áreas de especialidade
+- [Cases](https://www.nobrim.com.br/cases) — Estudos de casos e resultados
+- [Contato](https://www.nobrim.com.br/contato) — Informações de contato
+- [Blog](https://www.nobrim.com.br/blog) — Conteúdos sobre gestão, estratégia, processos e performance
+
+## Contato
+
+- **E-mail:** [contato@nobrim.com.br](mailto:contato@nobrim.com.br)
+- **Telefone:** +55 (71) 9285-8821
+- **Escritório:** Rua Francisco Drumond, 41, Centro, Camaçari, BA, CEP 42800-970, Brasil
+- **Horário de Atendimento:** Com agendamento
