@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://www.nobrim.com.br/sitemap.xml
-
-# LLMs.txt (para crawlers de IA)
-LLMs-txt: https://www.nobrim.com.br/llms.txt
