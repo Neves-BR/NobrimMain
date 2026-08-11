@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://nobrim-main.vercel.app/sitemap.xml
+Sitemap: https://www.nobrim.com.br/sitemap.xml
 
 # LLMs.txt (para crawlers de IA)
-LLMs-txt: https://nobrim-main.vercel.app/llms.txt
+LLMs-txt: https://www.nobrim.com.br/llms.txt
