@@ -1,0 +1,70 @@
+# Nobrim Soluções Corporativas
+
+> Consultoria estratégica focada em diagnóstico organizacional, gestão de performance e eficiência operacional. Transformamos a complexidade do seu negócio em resultados mensuráveis.
+
+## Sobre
+
+A Nobrim Soluções Corporativas atua lado a lado com a alta gestão de empresas para identificar gargalos, reestruturar fluxos e implementar métricas que refletem a realidade do negócio. Nossa missão é destravar o valor latente nas operações de nossos clientes.
+
+Nossos valores fundamentais são:
+- **Pragmatismo:** Soluções aplicáveis, não apenas teóricas
+- **Transparência:** Diagnósticos francos e baseados em fatos
+- **Foco em Resultados:** Cada ação deve impactar a última linha do balanço
+
+## Contato
+
+- **E-mail:** contato@nobrim.com.br
+- **Telefone:** +55 (71) 9285-8821
+- **Escritório Matriz:** Rua Francisco Drumond, 41, Centro, Camaçari, BA - CEP 42800-970, Brasil
+- **Horário de Atendimento:** Com agendamento
+
+## Serviços
+
+### Diagnóstico Organizacional
+Auditoria profunda da estrutura da empresa, identificando sobreposições, ineficiências de custo e oportunidades de ganho de margem.
+
+### Gestão de Performance (OKR/KPI)
+Desdobramento da estratégia em metas claras para todos os níveis, com criação de dashboards para acompanhamento executivo.
+
+### Otimização de Processos (BPM)
+Redesenho de fluxos de trabalho visando eliminar gargalos, reduzir o tempo de ciclo e padronizar a execução das equipes.
+
+### Planejamento Estratégico
+Construção da visão de longo prazo da empresa, definição de posicionamento de mercado e estruturação do plano de ação anual.
+
+### Governança Corporativa
+Estruturação de conselhos, acordos de acionistas e políticas internas para preparar a empresa para sucessão ou capitação de recursos.
+
+### Turnaround & Reestruturação
+Planos de ação emergenciais para adequação de fluxo de caixa, renegociação de passivos e estabilização de operações em crise.
+
+## Cases de Sucesso
+
+### Indústria Vektor (Manufatura)
+- **Desafio:** Altos custos de produção devido a ineficiências no chão de fábrica e falta de padronização
+- **Resultado:** Redução de 18% nos custos operacionais em 6 meses através da implantação de Lean Manufacturing
+
+### Agro Logística Sul (Operações e Logística)
+- **Desafio:** Falta de visibilidade na cadeia de suprimentos e altos custos de frete no transporte de matéria-prima das fazendas
+- **Resultado:** Otimização das rotas de escoamento e implantação de controles sistêmicos, reduzindo o tempo de trânsito em 22%
+
+### TechSolve S.A. (Tecnologia B2B)
+- **Desafio:** Crescimento desordenado causando atrito entre as áreas de Vendas e CS (Customer Success)
+- **Resultado:** Redesenho da jornada do cliente e alinhamento de KPIs (SLA), aumentando a retenção de clientes em 35%
+
+### Grupo Varejista Alfa (Varejo)
+- **Desafio:** Excesso de estoque descentralizado e rupturas nas gôndolas das principais filiais
+- **Resultado:** Centralização do S&OP (Planejamento de Vendas e Operações), diminuindo o capital de giro retido em R$ 4 milhões
+
+## Liderança
+
+- **Jozelia Pereira** — Fundadora & CEO
+
+## Documentação
+
+- [Home](https://nobrim-main.vercel.app/) — Consultoria Estratégica e Gestão
+- [Sobre](https://nobrim-main.vercel.app/sobre) — Nossa História, Missão e Valores
+- [Serviços](https://nobrim-main.vercel.app/servicos) — Áreas de Especialidade
+- [Cases](https://nobrim-main.vercel.app/cases) — Histórias de Transformação
+- [Contato](https://nobrim-main.vercel.app/contato) — Fale Conosco
+- [Blog](https://nobrim-main.vercel.app/blog) — Insights Estratégicos
