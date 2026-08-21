@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('cases');
+  return cases.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { clientName, industry, challenge, result, imageUrl } = entry.data;
+---
+
+<BaseLayout title={`${clientName} | Case de Sucesso`} description={challenge}>
+  <article class="container py-20">
+    <header class="mb-8">
+      <span class="badge">{industry}</span>
+      <h1>{clientName}</h1>
+    </header>
+
+    <div class="case-meta">
+      <p><strong>Desafio:</strong> {challenge}</p>
+      <p><strong>Resultado:</strong> {result}</p>
+    </div>
+
+    <div class="content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
