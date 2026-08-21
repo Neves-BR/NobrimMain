@@ -4,11 +4,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    css: {
-      minify: false,
-    },
-  },
   integrations: [
     // sanity({ projectId: 'seu-project-id', dataset: 'production' })
   ]
