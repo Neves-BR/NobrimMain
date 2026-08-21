@@ -51,7 +51,6 @@ const navLinks = isPt
       </ul>
     </nav>
 
-   
     <div class="header-actions">
       <!--<div class="lang-selector">
         <a
@@ -76,7 +75,6 @@ const navLinks = isPt
         {isPt ? 'Fale Conosco' : 'Contact Us'}
       </a>
     </div>
-
   </div>
 </header>
 
@@ -87,7 +85,7 @@ const navLinks = isPt
     const links = nav?.querySelectorAll('.nav-item');
     if (!toggle || !nav) return;
 
-    function setOpen(isOpen: boolean) {
+    function setOpen(isOpen) {
       nav.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
       toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
@@ -130,7 +128,6 @@ const navLinks = isPt
     gap: var(--space-4);
   }
 
-  /* LOGO */
   .logo-link {
     display: flex;
     align-items: center;
@@ -139,12 +136,11 @@ const navLinks = isPt
 
   .logo-link img {
     width: auto;
-    height: 150px;         /* Desktop: 150px */
+    height: 150px;
     max-width: 400px;
     object-fit: contain;
   }
 
-  /* Navegação Desktop */
   .nav-list {
     display: flex;
     align-items: center;
@@ -195,7 +191,6 @@ const navLinks = isPt
     background-color: var(--accent-primary);
   }
 
-  /* Ações do Header */
   .header-actions {
     display: flex;
     align-items: center;
@@ -203,7 +198,6 @@ const navLinks = isPt
     flex-shrink: 0;
   }
 
-  /* Seletor de Idioma */
   .lang-selector {
     display: flex;
     align-items: center;
@@ -236,30 +230,31 @@ const navLinks = isPt
     user-select: none;
   }
 
-  /* Botão CTA no header */
   .header-actions .btn-primary {
     min-height: 40px;
     padding: var(--space-2) var(--space-4);
     font-size: var(--text-sm);
   }
 
-  /* MENU MOBILE (Hambúrguer) */
   .menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 5px;
-    width: 44px;
-    height: 44px;
-    padding: 10px;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
     background: none;
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: background-color var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .menu-toggle:hover {
+  .menu-toggle:hover,
+  .menu-toggle:active {
     background-color: rgba(255, 255, 255, 0.08);
   }
 
@@ -285,7 +280,6 @@ const navLinks = isPt
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* RESPONSIVIDADE */
   @media (max-width: 1023px) {
     .header-actions .btn-primary {
       display: none;
@@ -300,11 +294,15 @@ const navLinks = isPt
     .menu-toggle {
       display: flex;
       z-index: 101;
+      margin-left: auto;
     }
 
     .nav-list {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 99;
       display: flex;
       flex-direction: column;
@@ -324,6 +322,7 @@ const navLinks = isPt
       color: var(--white);
       font-size: var(--text-xl);
       font-weight: 600;
+      padding: var(--space-3) var(--space-4);
     }
 
     .nav-item::after {
@@ -335,15 +334,34 @@ const navLinks = isPt
     }
   }
 
-  /* Mobile pequeno — proporcional ao desktop (75%) */
   @media (max-width: 479px) {
     .logo-link img {
-      height: 112px;       /* 150px * 0.75 = 112px */
-      max-width: 300px;
+      height: 100px;
+      max-width: 260px;
     }
 
     .lang-selector a {
       padding: var(--space-1);
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .logo-link img {
+      height: 85px;
+      max-width: 220px;
+    }
+
+    .nav-item {
+      font-size: var(--text-lg);
+    }
+
+    .header-container {
+      gap: var(--space-2);
     }
   }
 </style>
