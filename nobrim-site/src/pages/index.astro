@@ -45,12 +45,23 @@ const homeSchema = {
   <section class="social-proof-section">
     <div class="container text-center">
       <p class="text-secondary text-sm font-semibold uppercase tracking-wider mb-6">Empresas que confiam em nossa metodologia</p>
-      <div class="logos-grid">
-        <!-- Placeholders para os logos dos clientes -->
-        <img src="/assets/logo-client-1.webp" alt="Cliente corporativo 1" width="120" height="40" loading="lazy" />
-        <img src="/assets/logo-client-2.webp" alt="Cliente corporativo 2" width="120" height="40" loading="lazy" />
-        <img src="/assets/logo-client-3.webp" alt="Cliente corporativo 3" width="120" height="40" loading="lazy" />
-        <img src="/assets/logo-client-4.webp" alt="Cliente corporativo 4" width="120" height="40" loading="lazy" />
+      <div class="logos-marquee-wrapper">
+        <div class="logos-marquee">
+          <!-- Primeira fileira de logos -->
+          <div class="logos-track">
+            <img src="/assets/logo-client-1.webp" alt="Cliente corporativo 1" width="120" height="40" loading="lazy" />
+            <img src="/assets/logo-client-2.webp" alt="Cliente corporativo 2" width="120" height="40" loading="lazy" />
+            <img src="/assets/logo-client-3.webp" alt="Cliente corporativo 3" width="120" height="40" loading="lazy" />
+            <img src="/assets/logo-client-4.webp" alt="Cliente corporativo 4" width="120" height="40" loading="lazy" />
+          </div>
+          <!-- Duplicata para loop infinito -->
+          <div class="logos-track" aria-hidden="true">
+            <img src="/assets/logo-client-1.webp" alt="" width="120" height="40" loading="lazy" />
+            <img src="/assets/logo-client-2.webp" alt="" width="120" height="40" loading="lazy" />
+            <img src="/assets/logo-client-3.webp" alt="" width="120" height="40" loading="lazy" />
+            <img src="/assets/logo-client-4.webp" alt="" width="120" height="40" loading="lazy" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -117,20 +128,61 @@ const homeSchema = {
     border-bottom: 1px solid var(--border-subtle);
   }
 
-  .logos-grid {
+  .logos-marquee-wrapper {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+n      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .logos-marquee {
     display: flex;
-    justify-content: center;
+    width: max-content;
+    animation: scroll-logos 20s linear infinite;
+  }
+
+  .logos-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .logos-track {
+    display: flex;
     align-items: center;
-    gap: 48px;
-    flex-wrap: wrap;
+    gap: 64px;
+    padding-right: 64px;
+    flex-shrink: 0;
+  }
+
+  .logos-track img {
     opacity: 0.6;
     filter: grayscale(100%);
     transition: filter var(--transition-base), opacity var(--transition-base);
+    flex-shrink: 0;
   }
 
-  .logos-grid:hover {
+  .logos-track img:hover {
     opacity: 1;
     filter: grayscale(0%);
+  }
+
+  @keyframes scroll-logos {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   .services-grid {
