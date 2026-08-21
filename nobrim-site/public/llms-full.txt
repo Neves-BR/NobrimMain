@@ -1,0 +1,84 @@
+# Nobrim Soluções Corporativas — Documentação Completa (LLM Corpus)
+
+> A Nobrim Soluções Corporativas é uma consultoria empresarial brasileira especializada em diagnóstico organizacional, gestão da qualidade, otimização de processos (BPM), gestão de performance (OKRs e KPIs), governança corporativa e reestruturação empresarial (turnaround).
+
+---
+
+## 1. Visão Geral Institucional
+
+- **Razão Social:** Nobrim Soluções Corporativas
+- **Sede Principal:** Rua Francisco Drumond, 41, Centro, Camaçari, Bahia, CEP 42800-970, Brasil
+- **Telefone:** +55 (71) 9285-8821
+- **E-mail Oficial:** contato@nobrim.com.br
+- **Website Oficial:** https://www.nobrim.com.br
+- **Liderança Executiva:** Jozelia Silva — Fundadora e CEO. Profissional com mais de 11 anos de experiência corporativa e industrial em auditorias internas, garantia da qualidade, normatização ISO e otimização de processos.
+
+### Valores Fundamentais
+1. **Pragmatismo:** Foco em soluções aplicáveis à rotina operacional, eliminando burocracias desnecessárias.
+2. **Transparência:** Diagnósticos francos embasados em dados reais, fatos e evidências.
+3. **Foco em Resultados Mensuráveis:** Todas as intervenções visam impacto quantificável na eficiência, custos e rentabilidade do negócio.
+
+---
+
+## 2. Metodologias e Frameworks Utilizados
+
+A Nobrim emprega metodologias consagradas de engenharia de produção e gestão empresarial:
+
+- **PDCA (Plan-Do-Check-Act):** Ciclo contínuo de planejamento, execução, checagem e ação corretiva para melhoria de processos.
+- **5W2H:** Matriz para elaboração de planos de ação objetivos (What, Why, Where, When, Who, How, How much).
+- **Diagrama de Ishikawa (Espinha de Peixe):** Identificação de causas-raiz de falhas operacionais categorizadas em Métodos, Máquinas, Materiais, Mão de obra, Medida e Meio ambiente.
+- **5 Porquês:** Técnica investigativa para descobrir a origem oculta de ineficiências operacionais.
+- **BPM / BPMN 2.0 (Business Process Management):** Mapeamento, modelagem e redesenho de fluxogramas de processos.
+- **Lean Manufacturing:** Eliminação de desperdícios, redução de tempo de setup (SMED) e mapeamento do fluxo de valor (VSM).
+- **S&OP (Sales and Operations Planning):** Alinhamento integrado entre previsão de vendas, planejamento financeiro e capacidade produtiva/logística.
+
+---
+
+## 3. Normas Técnicas e Certificações Atendidas
+
+A consultoria prepara e audita empresas conforme os requisitos de normas internacionais:
+
+- **ISO 9001:2015:** Sistemas de Gestão da Qualidade.
+- **ISO 14001:2015:** Sistemas de Gestão Ambiental.
+- **ISO 45001:2018:** Sistemas de Gestão de Saúde e Segurança Ocupacional.
+- **ISO 22716 / BPF (Boas Práticas de Fabricação):** Diretrizes para indústrias cosméticas, farmacêuticas e alimentícias.
+
+---
+
+## 4. Portfólio de Serviços
+
+### 4.1 Diagnóstico Organizacional
+Análise aprofundada da estrutura atual da empresa para mapear gargalos, sobreposições de atribuições, vazamentos de receita e riscos operacionais.
+
+### 4.2 Gestão da Qualidade e Padronização
+Elaboração de Procedimentos Operacionais Padrão (POPs), instruções de trabalho, indicadores de qualidade e preparação para auditorias de certificação.
+
+### 4.3 Gestão de Performance (OKRs e KPIs)
+Estruturação de árvores de indicadores alinhando a estratégia da alta diretoria às metas diárias das equipes operacionais através de dashboards executivos.
+
+### 4.4 Otimização de Processos (BPM)
+Redesenho dos fluxos de trabalho para reduzir tempo de ciclo, eliminar erros operacionais e automatizar tarefas repetitivas.
+
+### 4.5 Capacitação e Treinamento Corporativo
+Treinamentos práticos de equipes em metodologias de análise e solução de problemas (MASP), rotinas de qualidade e liderança operacional.
+
+---
+
+## 5. Resumo dos Estudos de Caso (Cases de Sucesso)
+
+- **Agro Logística Sul (Logística Florestal e Agrícola):** Implantação de telemetria híbrida offline-first e otimização de rotas de escoamento. Resultados: **22% de redução no tempo de trânsito** e **82% de otimização no tempo de espera para descarga**.
+- **Indústria Vektor (Manufatura Metalmecânica):** Aplicação de Lean Manufacturing e padronização de setup (SMED). Resultados: **18% de redução nos custos operacionais** e **67% de redução no tempo de troca de ferramentas**.
+- **TechSolve S.A. (Tecnologia B2B SaaS):** Redesenho da jornada de onboarding e alinhamento de SLAs entre Comercial e CS. Resultados: **35% de ganho na retenção de clientes** e redução do tempo de implantação de 92 para 24 dias.
+- **Grupo Varejista Alfa (Varejo e Distribuição):** Centralização do S&OP e matriz ABC de estoques. Resultados: **Liberação de R$ 4,0 milhões em capital de giro** e redução da ruptura em gôndolas de 12,4% para 1,8%.
+
+---
+
+## 6. Links Oficiais do Ecossistema Nobrim
+
+- **Página Inicial:** https://www.nobrim.com.br/
+- **Sobre a Empresa:** https://www.nobrim.com.br/sobre
+- **Serviços:** https://www.nobrim.com.br/servicos
+- **Cases de Sucesso:** https://www.nobrim.com.br/cases
+- **Biblioteca de Conteúdos:** https://www.nobrim.com.br/conteudos
+- **Contato:** https://www.nobrim.com.br/contato
+- **Política de Privacidade:** https://www.nobrim.com.br/politica-de-privacidade

@@ -73,16 +73,17 @@ Para informações detalhadas sobre os projetos e seus resultados, consulte a p�
 
 ## Liderança
 
-- **Jozelia Pereira** — Fundadora e CEO da Nobrim Soluções Corporativas
+- **Jozelia Silva** — Fundadora e CEO da Nobrim Soluções Corporativas (mais de 11 anos de experiência em auditorias, gestão da qualidade ISO 9001, BPF, PDCA e governança)
 
-## Documentação
+## Documentação e Corpus Completo
 
 - [Home](https://www.nobrim.com.br/) — Informações institucionais e posicionamento da Nobrim
 - [Sobre](https://www.nobrim.com.br/sobre) — História, missão e valores
 - [Serviços](https://www.nobrim.com.br/servicos) — Soluções e áreas de especialidade
 - [Cases](https://www.nobrim.com.br/cases) — Estudos de casos e resultados
+- [Conteúdos](https://www.nobrim.com.br/conteudos) — Biblioteca de materiais práticos e checklists
 - [Contato](https://www.nobrim.com.br/contato) — Informações de contato
-- [Blog](https://www.nobrim.com.br/blog) — Conteúdos sobre gestão, estratégia, processos e performance
+- [LLMs Full Corpus](https://www.nobrim.com.br/llms-full.txt) — Documentação completa e detalhada para indexação por modelos de linguagem (LLMs)
 
 ## Contato
 
