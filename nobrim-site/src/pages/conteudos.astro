@@ -91,7 +91,7 @@ const contents = [
   .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
   .download-card { display: flex; flex-direction: column; align-items: flex-start; }
   .download-card p { flex: 1; }
-  .content-dialog { width: min(92vw, 640px); padding: var(--space-8); border: 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); }
+  .content-dialog { position: fixed; inset: 0; width: min(92vw, 640px); height: fit-content; max-height: calc(100dvh - 2rem); margin: auto; padding: var(--space-8); overflow-y: auto; border: 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); }
   .content-dialog::backdrop { background: rgba(0, 26, 58, .65); }
   .content-dialog h2 { padding-right: 2rem; }
   .close-modal { position: absolute; top: 1rem; right: 1rem; width: 2.75rem; height: 2.75rem; border: 0; border-radius: 50%; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; font-size: 1.75rem; }
