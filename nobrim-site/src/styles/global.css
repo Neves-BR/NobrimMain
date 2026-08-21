@@ -385,18 +385,4 @@ const navLinks = isPt
     }
   }
 
-  /* iPhone com notch / Dynamic Island — ajuste fino de safe area */
-  @supports (padding: max(0px)) {
-    @media (max-width: 767px) {
-      .site-header {
-        padding-left: max(var(--space-2), env(safe-area-inset-left));
-        padding-right: max(var(--space-2), env(safe-area-inset-right));
-      }
-
-      .nav-list {
-        padding-top: max(var(--space-4), env(safe-area-inset-top));
-        padding-bottom: max(var(--space-4), env(safe-area-inset-bottom));
-      }
-    }
-  }
 </style>
