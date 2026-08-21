@@ -3,7 +3,7 @@ clientName: "Agro Logística Sul"
 industry: "Operações e Logística"
 challenge: "Falta de visibilidade na cadeia de suprimentos e altos custos de frete..."
 result: "Otimização das rotas de escoamento, reduzindo o tempo de trânsito em 22%."
-imageUrl: "/assets/case-2-placeholder.webp"
+imageUrl: "/images/clientes/AgroLogisticaSul.png"
 ---
 
 ## Sobre o Cliente
