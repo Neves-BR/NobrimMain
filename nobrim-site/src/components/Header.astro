@@ -51,6 +51,11 @@ const navLinks = isPt
             </li>
           ))
         }
+        <li class="mobile-cta-item">
+          <a href={isPt ? '/contato' : '/en/contact'} class="btn-primary">
+            {isPt ? 'Fale Conosco' : 'Contact Us'}
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -284,21 +289,38 @@ const navLinks = isPt
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  @media (max-width: 1023px) {
-    .header-actions .btn-primary {
-      display: none;
-    }
+  .mobile-cta-item {
+    display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     .site-header {
       padding: var(--space-2) 0;
     }
 
+    .logo-link {
+      order: 1;
+    }
+
+    .header-actions {
+      order: 2;
+      margin-left: auto;
+    }
+
+    .header-actions .btn-primary {
+      display: none;
+    }
+
     .menu-toggle {
       display: flex;
+      order: 3;
       z-index: 101;
-      margin-left: auto;
+      margin-left: var(--space-2);
+    }
+
+    .mobile-cta-item {
+      display: block;
+      margin-top: var(--space-2);
     }
 
     .nav-list {
