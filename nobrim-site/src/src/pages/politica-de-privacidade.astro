@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Política de privacidade" description="Como a Nobrim trata os dados enviados pelo site." lang="pt-BR">
+  <section class="privacy-page">
+    <div class="container narrow">
+      <h1>Política de privacidade</h1>
+      <p>Esta página explica, de forma transparente, o tratamento de dados nas interações realizadas pelo site da Nobrim.</p>
+      <h2>Dados enviados no formulário</h2>
+      <p>O formulário não armazena dados no site. Ao enviá-lo, as informações preenchidas são incluídas em uma mensagem aberta no WhatsApp, para que o atendimento seja concluído por esse canal.</p>
+      <h2>Finalidade</h2>
+      <p>Os dados compartilhados são usados exclusivamente para responder ao contato solicitado, agendar conversas e apresentar os serviços da Nobrim.</p>
+      <h2>Seus direitos</h2>
+      <p>Para solicitar informações, atualização ou exclusão dos dados compartilhados, entre em contato pelo e-mail <a href="mailto:contato@nobrim.com.br">contato@nobrim.com.br</a>.</p>
+      <p class="notice">Esta política deve ser revisada pela assessoria jurídica da empresa antes da publicação definitiva, especialmente se forem adicionados CRM, newsletter, cookies não essenciais ou outros formulários.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .privacy-page { padding: var(--space-12) 0; }
+  .narrow { max-width: 800px; }
+  .notice { padding: var(--space-4); background: var(--bg-secondary); border-left: 4px solid var(--accent-primary); }
+</style>

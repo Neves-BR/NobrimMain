@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+// Schema.org para a Home (Organization, WebSite e FAQPage para AEO/AIO)
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.nobrim.com.br/#organization",
+      "name": "Nobrim Soluções Corporativas",
+      "url": "https://www.nobrim.com.br",
+      "logo": "https://www.nobrim.com.br/logo-nobrim.webp",
+      "description": "Consultoria empresarial brasileira especializada em diagnóstico organizacional, gestão da qualidade, otimização de processos e gestão de performance.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Francisco Drumond, 41, Centro",
+        "addressLocality": "Camaçari",
+        "addressRegion": "BA",
+        "postalCode": "42800-970",
+        "addressCountry": "BR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jozelia Silva",
+        "jobTitle": "Fundadora e CEO"
+      },
+      "knowsAbout": [
+        "Gestão da Qualidade",
+        "ISO 9001",
+        "Boas Práticas de Fabricação (BPF)",
+        "Business Process Management (BPM)",
+        "PDCA",
+        "5W2H",
+        "Lean Manufacturing",
+        "Gestão de Performance",
+        "OKRs e KPIs"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-71-9285-8821",
+        "contactType": "customer service",
+        "email": "contato@nobrim.com.br",
+        "availableLanguage": ["Portuguese", "English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.nobrim.com.br/#website",
+      "url": "https://www.nobrim.com.br",
+      "name": "Nobrim Soluções Corporativas",
+      "publisher": {
+        "@id": "https://www.nobrim.com.br/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.nobrim.com.br/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que faz a Nobrim Soluções Corporativas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Nobrim é uma consultoria empresarial especializada em diagnóstico organizacional, gestão da qualidade (ISO 9001 e BPF), otimização de processos operacionais (BPM) e gestão de performance por indicadores (OKRs e KPIs)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como a consultoria de processos reduz custos operacionais?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A consultoria identifica gargalos, retrabalhos e desperdícios no fluxo de trabalho, aplicando metodologias como Lean, PDCA e 5W2H para padronizar rotinas e aumentar a produtividade sem necessidade de investimentos desnecessários."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais normas técnicas e certificações a Nobrim atende?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Nobrim atua na preparação e auditoria para diretrizes da ISO 9001 (Qualidade), ISO 14001 (Meio Ambiente), ISO 45001 (Saúde e Segurança) e ISO 22716 / BPF (Boas Práticas de Fabricação)."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout 
+  title="Consultoria Estratégica e Gestão" 
+  description="A Nobrim transforma a complexidade do seu negócio em resultados mensuráveis através de consultoria especializada em gestão e processos."
+  lang="pt-BR"
+  schema={homeSchema}
+>
+  <!-- 1. Hero Section -->
+  <Hero />
+
+  <!-- 2. Social Proof (Logos) -->
+  <section class="social-proof-section">
+    <div class="container text-center">
+      <p class="text-secondary text-sm font-semibold uppercase tracking-wider mb-6">Empresas que confiam em nossa metodologia</p>
+      <div class="logos-marquee-wrapper">
+        <div class="logos-marquee">
+          <!-- Primeira fileira de logos -->
+          <div class="logos-track">
+            <img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="120" height="40" loading="lazy" />
+            <img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="120" height="40" loading="lazy" />
+            <img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="120" loading="lazy" />
+            <img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="120" height="40" loading="lazy" />
+            <img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="120" height="40" loading="lazy" />
+          </div>
+          <!-- Duplicata para loop infinito -->
+          <div class="logos-track" aria-hidden="true">
+            <img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="120" height="40" loading="lazy" />
+            <img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="120" height="40" loading="lazy" />
+            <img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="120" loading="lazy" />
+            <img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="120" height="40" loading="lazy" />
+            <img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="120" height="40" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Serviços Overview (Placeholder da estrutura) -->
+  <section class="services-section bg-secondary py-20">
+    <div class="container">
+      <div class="section-header text-center mb-12">
+        <h2>Áreas de Atuação</h2>
+        <h4>Expertise direcionada para os desafios mais críticos da sua empresa.</h4>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Exemplo de Card de Serviço direto no HTML para validação rápida -->
+        <div class="card">
+          <h3>Diagnóstico Organizacional</h3>
+          <p>Mapeamento completo da sua estrutura atual para identificar ineficiências, sobreposições de funções e oportunidades de corte de custos operacionais.</p>
+          <a href="/servicos" class="text-accent mt-4 inline-block font-semibold">Saiba mais &rarr;</a>
+        </div>
+        <div class="card">
+          <h3>Gestão de Performance</h3>
+          <p>Implementação de OKRs e KPIs estratégicos, garantindo que todos os níveis da empresa estejam alinhados aos objetivos de longo prazo da diretoria.</p>
+          <a href="/servicos" class="text-accent mt-4 inline-block font-semibold">Saiba mais &rarr;</a>
+        </div>
+        <div class="card">
+          <h3>Transformação de Processos</h3>
+          <p>Redesenho de fluxos de trabalho (BPM) para aumentar a agilidade produtiva e garantir a padronização e escalabilidade do modelo de negócio.</p>
+          <a href="/servicos" class="text-accent mt-4 inline-block font-semibold">Saiba mais &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA Final -->
+  <section class="cta-section py-20 text-center">
+    <div class="container">
+      <h2>Pronto para otimizar sua operação?</h2>
+      <p class="mb-8 max-w-2xl mx-auto">Fale com um de nossos especialistas e descubra como a Nobrim pode estruturar um plano de ação sob medida para a sua realidade.</p>
+      <a href="/contato" class="btn-primary">Solicitar Contato Comercial</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Classes utilitárias rápidas para a Home */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .text-center { text-align: center; }
+  .py-20 { padding-top: 80px; padding-bottom: 80px; }
+  .mb-6 { margin-bottom: 24px; }
+  .mb-8 { margin-bottom: 32px; }
+  .mb-12 { margin-bottom: 48px; }
+  .mt-4 { margin-top: 16px; }
+  .max-w-2xl { max-width: 42rem; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .text-secondary { color: var(--text-secondary); }
+  .text-accent { color: var(--accent-primary); }
+  .font-semibold { font-weight: 600; }
+  .uppercase { text-transform: uppercase; }
+  .tracking-wider { letter-spacing: 0.05em; }
+  .bg-secondary { background-color: var(--bg-secondary); }
+
+  .social-proof-section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .logos-marquee-wrapper {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .logos-marquee {
+    display: flex;
+    width: max-content;
+    animation: scroll-logos 20s linear infinite;
+  }
+
+  .logos-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .logos-track {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding-right: 64px;
+    flex-shrink: 0;
+  }
+
+  .logos-track img {
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: filter var(--transition-base), opacity var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  .logos-track img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  @keyframes scroll-logos {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .card {
+    text-align: center;
+  }
+
+  .card h3 {
+    text-align: center;
+  }
+
+  .section-header h2,
+  .cta-section h2 {
+    text-align: center;
+  }
+</style>

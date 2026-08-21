@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact us" description="Schedule a consultation with Nobrim's team." lang="en">
+    <section>
+        <div class="container narrow">
+            <h1>Let's talk about your business</h1>
+            <p>Tell us about your current challenge. Our team will contact you to schedule an introductory conversation.
+            </p>
+            <div class="card">
+                <h2>Contact channels</h2>
+                <p><strong>Email:</strong>
+                    <a href="mailto:contato@nobrim.com.br">contato@nobrim.com.br</a>
+                </p>
+                <p><strong>Phone:</strong>
+                    <a href="tel:+557192858821">+55 (71) 9285-8821</a>
+                </p>
+                <div class="actions"><a class="btn-primary"
+                        href="https://wa.me/557192858821?text=Hello%21%20I%20would%20like%20to%20learn%20more%20about%20Nobrim."
+                        target="_blank" rel="noopener noreferrer">Start on WhatsApp</a><a class="btn-secondary"
+                        href="mailto:contato@nobrim.com.br?subject=Contact%20from%20Nobrim%20website">Send an email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+<style>
+    .narrow {
+        max-width: 800px
+    }
+
+    .actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap
+    }
+</style>

@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Consultoria em Gestão da Qualidade, Processos e Performance",
+      "provider": {
+        "@type": "Organization",
+        "name": "Nobrim Soluções Corporativas",
+        "url": "https://www.nobrim.com.br"
+      },
+      "areaServed": "BR",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Consultoria Empresarial B2B",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão da Qualidade (ISO 9001 e BPF)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Padronização de Processos" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Melhoria de Processos (BPM / Lean)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Capacitação & Treinamentos Corporativos" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico Empresarial" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auditoria & Indicadores" } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como funciona a implementação da Gestão da Qualidade pela Nobrim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Nobrim estrutura rotinas operacionais práticas embasadas em diretrizes da ISO 9001 e Boas Práticas de Fabricação (BPF), garantindo conformidade em auditorias e redução de falhas de produção."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre padronização e melhoria de processos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A padronização documenta e treina a equipe no melhor fluxo de trabalho atual. A melhoria de processos utiliza ferramentas como PDCA, 5W2H e Ishikawa para eliminar gargalos e redesenhar fluxos."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout 
+  title="Nossos Serviços" 
+  description="Soluções práticas em Gestão da Qualidade, Padronização, Melhoria de Processos e Diagnóstico Empresarial."
+  lang="pt-BR"
+  schema={servicesSchema}
+>
+  
+  <div class="page-container py-20">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h1>Áreas de Especialidade</h1>
+        <p class="subtitle">
+          Transformamos conhecimento técnico em <strong>soluções práticas e aplicáveis</strong>, ajudando sua empresa a estruturar processos, capacitar equipes e construir uma cultura de <strong>melhoria contínua</strong>.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <ServiceCard 
+          title="Gestão da Qualidade" 
+          description="Implantação e estruturação de rotinas da qualidade focadas em eficiência, com embasamento em diretrizes da <strong>ISO 9001</strong> e <strong>Boas Práticas de Fabricação (BPF)</strong>." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Padronização de Processos" 
+          description="Mapeamento e elaboração de <strong>fluxogramas e documentações práticas</strong>, garantindo consistência operacional, redução de erros e facilidade no treinamento da equipe." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Melhoria de Processos" 
+          description="Aplicação de metodologias consolidadas como <strong>PDCA, 5W2H, Ishikawa e 5 Porquês</strong> para eliminar gargalos e otimizar a rotina operacional." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Capacitação & Treinamentos" 
+          description="Desenvolvimento e preparação de equipes para a execução de <strong>processos bem definidos</strong>, fortalecendo o engajamento e a cultura de excelência." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Diagnóstico Empresarial" 
+          description="Análise detalhada do cenário atual do seu negócio para <strong>identificar oportunidades de melhoria</strong>, gargalos produtivos e pontos de ajuste estrutural." 
+          linkUrl="/contato" 
+        />
+        <ServiceCard 
+          title="Auditoria & Indicadores" 
+          description="Análise de indicadores e auditorias internas para garantir conformidade e decisões embasadas nas normas <strong>ISO 22716, ISO 45001</strong> e <strong>ISO 14001</strong>." 
+          linkUrl="/contato" 
+        />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Centralização do container principal */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .mb-12 {
+    margin-bottom: 48px;
+  }
+
+  .py-20 { 
+    padding: 80px 0; 
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 672px;
+    margin: 16px auto 0 auto;
+    text-align: center;
+  }
+
+  .grid-3 { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 32px; 
+  }
+</style>
