@@ -1,4 +1,3 @@
----
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const sobreSchema = {
@@ -7,14 +6,14 @@ const sobreSchema = {
   "mainEntity": {
     "@type": "Organization",
     "name": "Nobrim Soluções Corporativas",
-    "description": "Consultoria estratégica focada em diagnóstico organizacional e eficiência operacional."
+    "description": "Consultoria estratégica focada em Gestão da Qualidade, Padronização e Melhoria de Processos."
   }
 };
 ---
 
 <BaseLayout 
   title="Sobre Nós" 
-  description="Conheça a história, a missão e a equipe de especialistas da Nobrim Soluções Corporativas."
+  description="Conheça a história, a missão e a liderança da Nobrim Soluções Corporativas."
   lang="pt-BR"
   schema={sobreSchema}
 >
@@ -24,7 +23,7 @@ const sobreSchema = {
       <div class="container">
         <h1>Nossa História</h1>
         <p class="subtitle">
-          Nascemos da convicção de que a complexidade corporativa pode ser simplificada através de processos inteligentes e gestão orientada a dados.
+          A <strong>Nobrim Soluções Corporativas</strong> nasceu da experiência e do propósito de <strong>Jozelia Silva</strong>, profissional com trajetória sólida construída em Gestão da Qualidade, Auditoria e Melhoria de Processos.
         </p>
       </div>
     </section>
@@ -32,14 +31,20 @@ const sobreSchema = {
     <section class="content-section">
       <div class="container two-columns">
         <div class="text-content">
-          <h2>Missão e Valores</h2>
+          <h2>Propósito e Atuação</h2>
           <h5>
-            Na Nobrim, nossa missão é destravar o valor latente nas operações de nossos clientes. Atuamos lado a lado com a alta gestão para identificar gargalos, reestruturar fluxos e implementar métricas que refletem a realidade do negócio.
+            A Nobrim foi criada com o compromisso de <strong>transformar conhecimento técnico em soluções práticas</strong>, acessíveis e totalmente aplicáveis à realidade de cada negócio.
           </h5>
+          <p class="mt-4">
+            Acreditamos que <strong>qualidade não precisa ser complexa</strong>. Processos bem definidos, pessoas preparadas e decisões baseadas em informações tornam as empresas mais organizadas, eficientes e preparadas para crescer.
+          </p>
+          <p class="mt-2">
+            Hoje, atuamos com foco estratégico em:
+          </p>
           <ul class="feature-list mt-4">
-            <li><strong>Pragmatismo:</strong> Soluções aplicáveis, não apenas teóricas.</li>
-            <li><strong>Transparência:</strong> Diagnósticos francos e baseados em fatos.</li>
-            <li><strong>Foco em Resultados:</strong> Cada ação deve impactar a última linha do balanço.</li>
+            <li><strong>Gestão da Qualidade & Padronização:</strong> Estruturação de processos eficientes.</li>
+            <li><strong>Melhoria de Processos:</strong> Identificação de oportunidades e eliminação de gargalos.</li>
+            <li><strong>Capacitação & Diagnóstico Empresarial:</strong> Construção de uma cultura sólida de melhoria contínua.</li>
           </ul>
         </div>
         <div class="image-content">
@@ -52,11 +57,17 @@ const sobreSchema = {
       <div class="container">
         <h2 class="text-center mb-12">Nossa Liderança</h2>
         <div class="grid-1">
-          <!-- Placeholders de Equipe -->
+          <!-- Card de Liderança com Bio Atualizada -->
           <div class="card text-center">
-            <img src="/sobre-img/CEO.png" alt="Sócio Diretor" width="120" height="120" loading="lazy" class="avatar" />
-            <h3 class="mt-4">Jozelia Pereira</h3>
-            <h5 class="mt-4">Fundadora & CEO</h5>
+            <img src="/sobre-img/CEO.png" alt="Jozelia Silva - Fundadora & CEO" width="120" height="120" loading="lazy" class="avatar" />
+            <h3 class="mt-4">Jozelia Silva</h3>
+            <h5 class="mt-2 color-accent">Fundadora & CEO</h5>
+            <p class="mt-4 text-bio">
+              Com mais de <strong>11 anos de experiência profissional</strong> em ambientes corporativos e industriais, Jozelia possui ampla vivência em auditorias, padronização e garantia da qualidade.
+            </p>
+            <p class="mt-2 text-bio">
+              Sua expertise abrange metodologias como <strong>PDCA, 5W2H, Ishikawa, 5 Porquês, fluxogramas e análise de indicadores</strong>, além de profundo conhecimento em normas regulatórias como a <strong>ISO 9001</strong> e <strong>Boas Práticas de Fabricação (BPF)</strong>.
+            </p>
           </div>
         </div>
       </div>
@@ -102,6 +113,16 @@ const sobreSchema = {
   .rounded-img { border-radius: var(--radius-lg); width: 100%; height: auto; }
   .avatar { border-radius: 10%; object-fit: cover; margin: 0 auto; display: block; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-  
+
+  /* Estilos complementares para o card de liderança */
+  .text-bio {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   @media (max-width: 768px) { .two-columns { grid-template-columns: 1fr; } }
 </style>
