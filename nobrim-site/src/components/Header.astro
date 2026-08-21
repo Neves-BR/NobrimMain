@@ -13,7 +13,7 @@ const navLinks = isPt
       { name: 'About', url: '/en/about' },
       { name: 'Services', url: '/en/services' },
       { name: 'Cases', url: '/en/cases' },
-      { name: 'Content', url: '/en/content' },
+      { name: 'Content', url: '/content' },
     ];
 ---
 
@@ -116,7 +116,7 @@ const navLinks = isPt
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: var(--space-2) 0;
+    padding: 0.5rem 0;
     background-color: rgba(0, 27, 68, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
@@ -138,8 +138,8 @@ const navLinks = isPt
 
   .logo-link img {
     width: auto;
-    height: 150px;
-    max-width: 400px;
+    height: 76px;
+    max-width: 240px;
     object-fit: contain;
   }
 
@@ -338,8 +338,8 @@ const navLinks = isPt
 
   @media (max-width: 479px) {
     .logo-link img {
-      height: 100px;
-      max-width: 260px;
+      height: 58px;
+      max-width: 190px;
     }
 
     .lang-selector a {
@@ -354,8 +354,8 @@ const navLinks = isPt
 
   @media (max-width: 375px) {
     .logo-link img {
-      height: 85px;
-      max-width: 220px;
+      height: 52px;
+      max-width: 170px;
     }
 
     .nav-item {
