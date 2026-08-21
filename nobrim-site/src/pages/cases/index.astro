@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseCard from '../components/CaseCard.astro';
+
+const cases = await getCollection('cases');
+---
+
+<BaseLayout title="Cases de Sucesso" description="...">
+  <main class="page-container py-20 bg-secondary">
+    <div class="container">
+      <div class="grid-2">
+        {cases.map((item) => (
+          <CaseCard 
+            clientName={item.data.clientName}
+            industry={item.data.industry}
+            challenge={item.data.challenge}
+            result={item.data.result}
+            imageUrl={item.data.imageUrl}
+            slug={item.slug}
+          />
+        ))}
+      </div>
+    </div>
+  </main>
+</BaseLayout>
