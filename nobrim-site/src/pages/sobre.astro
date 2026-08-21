@@ -21,7 +21,7 @@ const schema = {
 ---
 
 <BaseLayout title="Sobre nós" description="Conheça a história e a liderança da Nobrim Soluções Corporativas." lang="pt-BR" schema={schema}>
-  <section class="intro">
+  <section class="intro text-center">
     <div class="container narrow">
       <p class="eyebrow">Sobre a Nobrim</p>
       <h1>Estrutura para empresas crescerem com clareza</h1>
@@ -56,12 +56,13 @@ const schema = {
 
 <style>
   .intro { padding: var(--space-12) 0 var(--space-8); background: var(--bg-secondary); }
+  .intro p { margin-inline: auto; text-align: center; }
   .narrow { max-width: 780px; }
   .eyebrow, .role { color: var(--accent-primary); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
   .split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
   .profile-image { width: 100%; max-height: 520px; object-fit: cover; border-radius: var(--radius-lg); }
   .leadership { background: var(--bg-secondary); }
   .center { text-align: center; }
-  .center p { margin-inline: auto; }
+  .center p { margin-inline: auto; text-align: center; }
   @media (max-width: 768px) { .split { grid-template-columns: 1fr; } }
 </style>

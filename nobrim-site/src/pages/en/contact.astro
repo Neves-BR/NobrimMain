@@ -2,11 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Contact us" description="Schedule a consultation with Nobrim's team." lang="en">
-    <section>
+    <section class="py-20">
         <div class="container narrow">
-            <h1>Let's talk about your business</h1>
-            <p>Tell us about your current challenge. Our team will contact you to schedule an introductory conversation.
-            </p>
+            <div class="text-center mb-12">
+                <h1>Let's talk about your business</h1>
+                <p class="subtitle">Tell us about your current challenge. Our team will contact you to schedule an introductory conversation.</p>
+            </div>
             <div class="card">
                 <h2>Contact channels</h2>
                 <p><strong>Email:</strong>
@@ -25,13 +26,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 </BaseLayout>
 <style>
-    .narrow {
-        max-width: 800px
-    }
-
-    .actions {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap
-    }
+    .py-20 { padding: 80px 0; }
+    .narrow { max-width: 800px; margin-inline: auto; }
+    .text-center { text-align: center; }
+    .mb-12 { margin-bottom: 48px; }
+    .subtitle { font-size: 1.125rem; color: var(--text-secondary); max-width: 672px; margin: 16px auto 0 auto; text-align: center; }
+    .actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 </style>

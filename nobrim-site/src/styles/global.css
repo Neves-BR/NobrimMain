@@ -403,6 +403,15 @@ figcaption {
 .text-left   { text-align: left; }
 .text-right  { text-align: right; }
 
+.text-center p,
+p.text-center,
+.center p,
+p.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .text-primary   { color: var(--text-primary); }
 .text-secondary { color: var(--text-secondary); }
 .text-accent    { color: var(--accent-primary); }

@@ -24,11 +24,11 @@ const contents = [
 ---
 
 <BaseLayout title="Conteúdos" description="Materiais práticos da Nobrim sobre gestão, processos e performance." lang="pt-BR">
-  <section class="content-hero">
+  <section class="content-hero text-center">
     <div class="container">
       <p class="eyebrow">Biblioteca Nobrim</p>
       <h1>Conteúdos para aplicar no seu negócio</h1>
-      <p>Materiais práticos para apoiar diagnósticos, decisões e a evolução da gestão da sua empresa.</p>
+      <p class="subtitle">Materiais práticos para apoiar diagnósticos, decisões e a evolução da gestão da sua empresa.</p>
     </div>
   </section>
 
@@ -84,8 +84,8 @@ const contents = [
 </script>
 
 <style>
-  .content-hero { padding: var(--space-12) 0 var(--space-8); background: var(--bg-secondary); }
-  .content-hero p:not(.eyebrow) { font-size: var(--text-md); color: var(--text-secondary); }
+  .content-hero { padding: var(--space-12) 0 var(--space-8); background: var(--bg-secondary); text-align: center; }
+  .content-hero .subtitle { font-size: var(--text-md); color: var(--text-secondary); max-width: 672px; margin: 16px auto 0 auto; text-align: center; }
   .eyebrow { color: var(--accent-primary); font-size: var(--text-sm); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
   .content-list { padding: var(--space-10) 0; }
   .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
