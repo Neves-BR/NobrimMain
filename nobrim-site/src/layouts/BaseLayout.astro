@@ -11,6 +11,7 @@ interface Props {
   lang?: 'pt-BR' | 'en';
   schema?: Record<string, any>;
   ogType?: 'website' | 'article';
+  ogImage?: string;
 }
 
 const { 
@@ -18,10 +19,16 @@ const {
   description, 
   lang = 'pt-BR', 
   schema,
-  ogType = 'website'
+  ogType = 'website',
+  ogImage = '/assets/logo-nobrim.webp'
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nobrim.com.br');
+const siteUrl = Astro.site || 'https://www.nobrim.com.br';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+
+// Garante que a imagem do OG seja sempre uma URL absoluta
+const imageURL = new URL(ogImage, canonicalURL).toString();
+const ogLocale = lang === 'en' ? 'en_US' : 'pt_BR';
 ---
 
 <!DOCTYPE html>
@@ -42,16 +49,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nobr
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://nobrim.vercel.app" />
     
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content={ogType} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Nobrim Soluções Corporativas`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:secure_url" content={imageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`Banner de visualização - ${title}`} />
     <meta property="og:site_name" content="Nobrim Soluções Corporativas" />
-    <meta property="og:image" content="/assets/og-image.webp" />
+    <meta property="og:locale" content={ogLocale} />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={`${title} | Nobrim Soluções Corporativas`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:image:alt" content={`Banner de visualização - ${title}`} />
     
     <!-- Schema.org JSON-LD -->
     {schema && (
@@ -64,12 +81,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nobr
     
     <main id="main-content" role="main">
       <slot />
-    <!-- Botão flutuante do WhatsApp -->
-    <WhatsAppFloat 
-      phone="557192858821" 
-      message="Olá! Vim pelo site da Nobrim e gostaria de mais informações."
-      position="right"
-    />
+      <!-- Botão flutuante do WhatsApp -->
+      <WhatsAppFloat 
+        phone="557192858821" 
+        message="Olá! Vim pelo site da Nobrim e gostaria de mais informações."
+        position="right"
+      />
     </main>
     
     <!-- Componente de Footer será inserido aqui -->
