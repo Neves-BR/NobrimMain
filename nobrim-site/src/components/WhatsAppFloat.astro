@@ -32,7 +32,7 @@ const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
 <style>
   .whatsapp-float {
     position: fixed;
-    bottom: 24px;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     z-index: 50;
     display: flex;
     align-items: center;
@@ -135,7 +135,7 @@ const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
   }
 
   @media (max-width: 640px) {
-    .whatsapp-float { width: 54px; height: 54px; bottom: 16px; }
+    .whatsapp-float { width: 54px; height: 54px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
     .whatsapp-float.right { right: 16px; }
     .whatsapp-float.left { left: 16px; }
     .whatsapp-icon { width: 26px; height: 26px; }

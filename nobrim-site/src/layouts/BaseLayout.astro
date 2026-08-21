@@ -34,7 +34,10 @@ const localeRoutes: Record<string, string> = {
   '/en': '/', '/en/about': '/sobre', '/en/services': '/servicos', '/en/cases': '/cases',
   '/en/contact': '/contato', '/en/resources': '/conteudos', '/en/blog': '/blog', '/en/privacy': '/politica-de-privacidade',
 };
-const alternatePath = localeRoutes[currentPath];
+let alternatePath = localeRoutes[currentPath];
+if (!alternatePath && currentPath.startsWith('/cases/')) {
+  alternatePath = '/en/cases';
+}
 const alternateURL = alternatePath ? new URL(alternatePath, siteUrl) : undefined;
 const portugueseURL = lang === 'pt-BR' ? canonicalURL : alternateURL;
 const englishURL = lang === 'en' ? canonicalURL : alternateURL;
@@ -45,14 +48,15 @@ const ogLocale = lang === 'en' ? 'en_US' : 'pt_BR';
 const safeSchema = schema
   ? JSON.stringify(schema).replace(/</g, '\\u003c')
   : undefined;
+const pageTitle = title.includes('Nobrim') ? title : `${title} | Nobrim Soluções Corporativas`;
 ---
 
 <!DOCTYPE html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Nobrim Soluções Corporativas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -63,15 +67,16 @@ const safeSchema = schema
     {englishURL && <link rel="alternate" hreflang="en" href={englishURL} />}
     {portugueseURL && <link rel="alternate" hreflang="x-default" href={portugueseURL} />}
     
-    <!-- Preconnect & DNS -->
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" />
     <link rel="dns-prefetch" href="https://nobrim.vercel.app" />
     
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={`${title} | Nobrim Soluções Corporativas`} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageURL} />
     <meta property="og:image:secure_url" content={imageURL} />
@@ -83,8 +88,10 @@ const safeSchema = schema
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nobrim" />
+    <meta name="twitter:creator" content="@nobrim" />
     <meta name="twitter:url" content={canonicalURL} />
-    <meta name="twitter:title" content={`${title} | Nobrim Soluções Corporativas`} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
     <meta name="twitter:image:alt" content={`Banner de visualização - ${title}`} />

@@ -4,24 +4,51 @@ import ServiceCard from '../components/ServiceCard.astro';
 
 const servicesSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Consultoria em Gestão da Qualidade e Processos",
-  "provider": {
-    "@type": "Organization",
-    "name": "Nobrim Soluções Corporativas"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Serviços de Consultoria B2B",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão da Qualidade" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Padronização de Processos" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Melhoria de Processos" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Capacitação & Treinamentos" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico Empresarial" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auditoria e Conformidade" } }
-    ]
-  }
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Consultoria em Gestão da Qualidade, Processos e Performance",
+      "provider": {
+        "@type": "Organization",
+        "name": "Nobrim Soluções Corporativas",
+        "url": "https://www.nobrim.com.br"
+      },
+      "areaServed": "BR",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Consultoria Empresarial B2B",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão da Qualidade (ISO 9001 e BPF)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Padronização de Processos" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Melhoria de Processos (BPM / Lean)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Capacitação & Treinamentos Corporativos" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico Empresarial" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auditoria & Indicadores" } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como funciona a implementação da Gestão da Qualidade pela Nobrim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Nobrim estrutura rotinas operacionais práticas embasadas em diretrizes da ISO 9001 e Boas Práticas de Fabricação (BPF), garantindo conformidade em auditorias e redução de falhas de produção."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre padronização e melhoria de processos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A padronização documenta e treina a equipe no melhor fluxo de trabalho atual. A melhoria de processos utiliza ferramentas como PDCA, 5W2H e Ishikawa para eliminar gargalos e redesenhar fluxos."
+          }
+        }
+      ]
+    }
+  ]
 };
 ---
 
@@ -110,7 +137,7 @@ const servicesSchema = {
 
   .grid-3 { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); 
     gap: 32px; 
   }
 </style>

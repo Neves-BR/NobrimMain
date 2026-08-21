@@ -14,14 +14,34 @@ const { item } = Astro.props;
 const { Content } = await render(item);
 const { clientName, industry, challenge, result, imageUrl } = item.data;
 
-// Schema de Breadcrumb para SEO
-const breadcrumbSchema = {
+// Schema de Breadcrumb e Article para SEO & Google AI Overviews
+const caseSchema = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nobrim.com.br/" },
-    { "@type": "ListItem", "position": 2, "name": "Cases de Sucesso", "item": "https://www.nobrim.com.br/cases" },
-    { "@type": "ListItem", "position": 3, "name": clientName, "item": `https://www.nobrim.com.br/cases/${item.id}` }
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nobrim.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Cases de Sucesso", "item": "https://www.nobrim.com.br/cases" },
+        { "@type": "ListItem", "position": 3, "name": clientName, "item": `https://www.nobrim.com.br/cases/${item.id}` }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": `${clientName} — Case de Sucesso em Consulting e Processos`,
+      "description": challenge,
+      "articleSection": industry,
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nobrim Soluções Corporativas",
+        "url": "https://www.nobrim.com.br"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Nobrim Soluções Corporativas"
+      }
+    }
   ]
 };
 ---
@@ -30,7 +50,7 @@ const breadcrumbSchema = {
   title={`${clientName} | Case de Sucesso - Nobrim`} 
   description={challenge}
   lang="pt-BR"
-  schema={breadcrumbSchema}
+  schema={caseSchema}
 >
   <div class="case-detail-page py-16 bg-secondary">
     <div class="container">

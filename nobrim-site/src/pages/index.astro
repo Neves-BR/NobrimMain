@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 
-// Schema.org para a Home (Organization e WebSite)
+// Schema.org para a Home (Organization, WebSite e FAQPage para AEO/AIO)
 const homeSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -12,10 +12,36 @@ const homeSchema = {
       "name": "Nobrim Soluções Corporativas",
       "url": "https://www.nobrim.com.br",
       "logo": "https://www.nobrim.com.br/logo-nobrim.webp",
+      "description": "Consultoria empresarial brasileira especializada em diagnóstico organizacional, gestão da qualidade, otimização de processos e gestão de performance.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Francisco Drumond, 41, Centro",
+        "addressLocality": "Camaçari",
+        "addressRegion": "BA",
+        "postalCode": "42800-970",
+        "addressCountry": "BR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jozelia Silva",
+        "jobTitle": "Fundadora e CEO"
+      },
+      "knowsAbout": [
+        "Gestão da Qualidade",
+        "ISO 9001",
+        "Boas Práticas de Fabricação (BPF)",
+        "Business Process Management (BPM)",
+        "PDCA",
+        "5W2H",
+        "Lean Manufacturing",
+        "Gestão de Performance",
+        "OKRs e KPIs"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+55-71-9285-8821",
         "contactType": "customer service",
+        "email": "contato@nobrim.com.br",
         "availableLanguage": ["Portuguese", "English"]
       }
     },
@@ -23,10 +49,40 @@ const homeSchema = {
       "@type": "WebSite",
       "@id": "https://www.nobrim.com.br/#website",
       "url": "https://www.nobrim.com.br",
-      "name": "Nobrim",
+      "name": "Nobrim Soluções Corporativas",
       "publisher": {
         "@id": "https://www.nobrim.com.br/#organization"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.nobrim.com.br/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que faz a Nobrim Soluções Corporativas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Nobrim é uma consultoria empresarial especializada em diagnóstico organizacional, gestão da qualidade (ISO 9001 e BPF), otimização de processos operacionais (BPM) e gestão de performance por indicadores (OKRs e KPIs)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como a consultoria de processos reduz custos operacionais?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A consultoria identifica gargalos, retrabalhos e desperdícios no fluxo de trabalho, aplicando metodologias como Lean, PDCA e 5W2H para padronizar rotinas e aumentar a produtividade sem necessidade de investimentos desnecessários."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais normas técnicas e certificações a Nobrim atende?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Nobrim atua na preparação e auditoria para diretrizes da ISO 9001 (Qualidade), ISO 14001 (Meio Ambiente), ISO 45001 (Saúde e Segurança) e ISO 22716 / BPF (Boas Práticas de Fabricação)."
+          }
+        }
+      ]
     }
   ]
 };
@@ -189,7 +245,7 @@ const homeSchema = {
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 24px;
     justify-content: center;
   }
