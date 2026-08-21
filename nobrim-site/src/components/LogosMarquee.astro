@@ -24,7 +24,15 @@ const title = isPt
           <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="140" height="40" loading="lazy" /></div>
           <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="140" height="40" loading="lazy" /></div>
         </div>
-        <!-- Track 2 — duplicação para loop infinito sem emenda -->
+        <!-- Track 2 -->
+        <div class="logos-track" aria-hidden="true">
+          <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="140" height="40" loading="lazy" /></div>
+        </div>
+        <!-- Track 3 — garante cobertura em telas grandes -->
         <div class="logos-track" aria-hidden="true">
           <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="140" height="40" loading="lazy" /></div>
           <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="140" height="40" loading="lazy" /></div>
@@ -76,7 +84,6 @@ const title = isPt
     display: flex;
     align-items: center;
     gap: 64px;
-    padding-right: 64px
     flex-shrink: 0;
   }
 
@@ -107,13 +114,13 @@ const title = isPt
 
   @keyframes scroll-logos {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-33.333%); }
   }
 
   @media (max-width: 768px) {
     .social-proof-section { padding: 32px 0; }
     .logo-item { height: 56px; }
-    .logos-track { gap: 40px; padding-right: 40px; }
+    .logos-track { gap: 40px; }
     .logos-track img { max-height: 48px; max-width: 150px; }
   }
 </style>
