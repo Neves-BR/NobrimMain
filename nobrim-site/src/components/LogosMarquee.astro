@@ -18,19 +18,19 @@ const title = isPt
       <div class="logos-marquee">
         <!-- Track 1 -->
         <div class="logos-track">
-          <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="170" height="auto" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="140" height="40" loading="lazy" /></div>
         </div>
         <!-- Track 2 — duplicação para loop infinito sem emenda -->
         <div class="logos-track" aria-hidden="true">
-          <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="170" height="auto" loading="lazy" /></div>
-          <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="170" height="auto" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="140" height="40" loading="lazy" /></div>
         </div>
       </div>
     </div>
@@ -84,14 +84,14 @@ const title = isPt
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 48px;
+    height: 80px;
     flex-shrink: 0;
   }
 
   .logos-track img {
-    max-height: 38px;
+    max-height: 64px;
     width: auto;
-    max-width: 140px;
+    max-width: 200px;
     object-fit: contain;
     opacity: 0.6;
     filter: grayscale(100%);
@@ -113,7 +113,8 @@ const title = isPt
 
   @media (max-width: 768px) {
     .social-proof-section { padding: 32px 0; }
+    .logo-item { height: 56px; }
     .logos-track { gap: 40px; padding-right: 40px; }
-    .logos-track img { max-height: 32px; max-width: 110px; }
+    .logos-track img { max-height: 48px; max-width: 150px; }
   }
 </style>
