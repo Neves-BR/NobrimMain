@@ -2,19 +2,15 @@
 interface Props {
   lang?: 'pt-BR' | 'en';
 }
+
 const { lang = 'pt-BR' } = Astro.props;
 const isPt = lang === 'pt-BR';
+
 const title = isPt
   ? 'Empresas que confiam em nossa metodologia'
   : 'Companies that trust our methodology';
-const logos = [
-  { src: '/images/clientes/dmedeiros.png', alt: "D'Medeiros", width: 140, height: 40 },
-  { src: '/images/clientes/danof.png', alt: 'DANOF - Beauty Company', width: 140, height: 40 },
-  { src: '/images/clientes/WEEMAKE.png', alt: 'WeeMake', width: 120, height: 40 },
-  { src: '/images/clientes/iteratio.png', alt: 'Iteratio.io', width: 140, height: 40 },
-  { src: '/images/clientes/AgroLogisticaSul-Photoroom.png', alt: 'Agro Logística Sul', width: 140, height: 40 },
-];
 ---
+
 <section class="social-proof-section">
   <div class="container text-center">
     <p class="text-secondary text-sm font-semibold uppercase tracking-wider mb-6">{title}</p>
@@ -22,26 +18,102 @@ const logos = [
       <div class="logos-marquee">
         <!-- Track 1 -->
         <div class="logos-track">
-          {logos.map((logo) => (
-            <div class="logo-item">
-              <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} loading="lazy" />
-            </div>
-          ))}
+          <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="140" height="40" loading="lazy" /></div>
         </div>
-        <!-- Track 2 (duplicação contínua para loop sem emendas) -->
+        <!-- Track 2 — duplicação para loop infinito sem emenda -->
         <div class="logos-track" aria-hidden="true">
-          {logos.map((logo) => (
-            <div class="logo-item">
-              <img src={logo.src} alt="" width={logo.width} height={logo.height} loading="lazy" />
-            </div>
-          ))}
+          <div class="logo-item"><img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="140" height="40" loading="lazy" /></div>
+          <div class="logo-item"><img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="140" height="40" loading="lazy" /></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <style>
   .social-proof-section {
     padding: 40px 0;
     border-bottom: 1px solid var(--border-subtle);
     background-color: var(--bg-primary);
+    overflow: hidden;
+  }
+
+  .text-secondary { color: var(--text-secondary); }
+  .text-sm { font-size: var(--text-sm); }
+  .font-semibold { font-weight: 600; }
+  .uppercase { text-transform: uppercase; }
+  .tracking-wider { letter-spacing: 0.05em; }
+  .mb-6 { margin-bottom: 24px; }
+  .text-center { text-align: center; }
+
+  .logos-marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  .logos-marquee {
+    display: flex;
+    width: max-content;
+    animation: scroll-logos 25s linear infinite;
+    will-change: transform;
+  }
+
+  .logos-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .logos-track {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding-right: 64px;
+    flex-shrink: 0;
+  }
+
+  .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .logos-track img {
+    max-height: 38px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: filter var(--transition-base), opacity var(--transition-base), transform var(--transition-base);
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .logos-track img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  @keyframes scroll-logos {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 768px) {
+    .social-proof-section { padding: 32px 0; }
+    .logos-track { gap: 40px; padding-right: 40px; }
+    .logos-track img { max-height: 32px; max-width: 110px; }
+  }
+</style>
