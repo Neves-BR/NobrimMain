@@ -30,6 +30,14 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'translationOf',
+      title: 'Original post / translation group',
+      type: 'reference',
+      to: [{ type: 'post' }],
+      weak: true,
+      description: 'Link the translated version to its original post so language navigation can find the equivalent article.',
+    },
+    {
       name: 'author',
       title: 'Autor',
       type: 'string',
