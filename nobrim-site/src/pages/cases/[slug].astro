@@ -252,7 +252,52 @@ const breadcrumbSchema = {
     font-style: italic;
     color: #475569;
   }
+  /* Estilização e Responsividade para Tabelas dentro do Markdown */
+  .content-typography :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 1rem;
+    text-align: left;
+    display: block;
+    overflow-x: auto; /* Permite rolagem horizontal suave no celular */
+    white-space: nowrap;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
 
+  @media (min-width: 640px) {
+    .content-typography :global(table) {
+      display: table; /* Volta ao comportamento normal de tabela em telas maiores */
+      white-space: normal;
+    }
+  }
+
+  .content-typography :global(th) {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-bottom: 2px solid #e2e8f0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  .content-typography :global(td) {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+  }
+
+  /* Efeito zebrado nas linhas para facilitar a leitura */
+  .content-typography :global(tr:nth-child(even)) {
+    background-color: #f8fafc;
+  }
+
+  .content-typography :global(tr:hover) {
+    background-color: #f1f5f9;
+  }
   /* Footer com CTA de Conversão */
   .case-footer {
     background-color: #f8fafc;
