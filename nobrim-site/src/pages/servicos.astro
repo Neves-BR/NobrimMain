@@ -33,7 +33,7 @@ const servicesSchema = {
     <div class="container">
       <div class="text-center mb-12">
         <h1>Áreas de Especialidade</h1>
-        <p class="subtitle max-w-2xl mx-auto">
+        <p class="subtitle">
           Atuamos de ponta a ponta na sua empresa, desde a concepção estratégica até a implantação de rotinas no nível operacional.
         </p>
       </div>
@@ -75,12 +75,39 @@ const servicesSchema = {
 </BaseLayout>
 
 <style>
-  .py-20 { padding: 80px 0; }
-  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+  /* Centralização do container principal */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .mb-12 {
+    margin-bottom: 48px;
+  }
+
+  .py-20 { 
+    padding: 80px 0; 
+  }
+
   .subtitle {
     font-size: 1.125rem;
     color: var(--text-secondary);
-    margin-top: 16px;
+    max-width: 672px; /* Limita a largura do parágrafo */
+    margin: 16px auto 0 auto; /* O "auto" nas laterais é o que força a centralização do bloco */
     text-align: center;
-}
+  }
+
+  .grid-3 { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 32px; 
+  }
 </style>
