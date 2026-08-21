@@ -1,0 +1,21 @@
+---
+interface Props { lang: 'pt-BR' | 'en'; currentPath: string; }
+const { lang, currentPath } = Astro.props;
+const isPt = lang === 'pt-BR';
+const path = currentPath.replace(/\/$/, '') || '/';
+const routes: Record<string, string> = {
+  '/': '/en/', '/sobre': '/en/about', '/servicos': '/en/services', '/cases': '/en/cases',
+  '/contato': '/en/contact', '/conteudos': '/en/resources', '/blog': '/en/blog', '/politica-de-privacidade': '/en/privacy',
+  '/en': '/', '/en/about': '/sobre', '/en/services': '/servicos', '/en/cases': '/cases',
+  '/en/contact': '/contato', '/en/resources': '/conteudos', '/en/blog': '/blog', '/en/privacy': '/politica-de-privacidade',
+};
+const alternative = routes[path] || (isPt ? '/en/' : '/');
+const ptUrl = isPt ? path : alternative;
+const enUrl = isPt ? alternative : path;
+---
+
+<div class="lang-selector" aria-label="Language selector">
+  <a href={ptUrl} class={isPt ? 'active' : ''} hreflang="pt-BR" lang="pt-BR" aria-label="Mudar para português">PT</a>
+  <span aria-hidden="true">|</span>
+  <a href={enUrl} class={!isPt ? 'active' : ''} hreflang="en" lang="en" aria-label="Switch to English">EN</a>
+</div>
