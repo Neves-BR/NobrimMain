@@ -138,7 +138,7 @@ const navLinks = isPt
 
   .logo-link img {
     width: auto;
-    height: 150px;         /* Desktop: 150px */
+    height: 150px;
     max-width: 400px;
     object-fit: contain;
   }
@@ -247,18 +247,21 @@ const navLinks = isPt
     display: none;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 5px;
-    width: 44px;
-    height: 44px;
-    padding: 10px;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
     background: none;
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: background-color var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .menu-toggle:hover {
+  .menu-toggle:hover,
+  .menu-toggle:active {
     background-color: rgba(255, 255, 255, 0.08);
   }
 
@@ -284,27 +287,34 @@ const navLinks = isPt
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* RESPONSIVIDADE */
+  /* RESPONSIVIDADE TABLET */
   @media (max-width: 1023px) {
     .header-actions .btn-primary {
       display: none;
     }
   }
 
+  /* RESPONSIVIDADE MOBILE — iPhones e Androids */
   @media (max-width: 767px) {
     .site-header {
       padding: var(--space-2) 0;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
     }
 
     .menu-toggle {
       display: flex;
       z-index: 101;
-      margin-left: auto;   /* <-- EMPURRA O HAMBÚRGUER PARA A DIREITA */
+      margin-left: auto;
+      margin-right: calc(env(safe-area-inset-right) + 4px);
     }
 
     .nav-list {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       z-index: 99;
       display: flex;
       flex-direction: column;
@@ -314,6 +324,12 @@ const navLinks = isPt
       background-color: var(--bg-primary-alt);
       transform: translateX(100%);
       transition: transform var(--transition-base);
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
     }
 
     .nav-list.open {
@@ -324,6 +340,7 @@ const navLinks = isPt
       color: var(--white);
       font-size: var(--text-xl);
       font-weight: 600;
+      padding: var(--space-3) var(--space-4);
     }
 
     .nav-item::after {
@@ -335,15 +352,51 @@ const navLinks = isPt
     }
   }
 
-  /* Mobile pequeno — proporcional ao desktop (75%) */
+  /* iPhone SE, 8, 8 Plus e similares pequenos */
   @media (max-width: 479px) {
     .logo-link img {
-      height: 112px;       /* 150px * 0.75 = 112px */
-      max-width: 300px;
+      height: 100px;
+      max-width: 260px;
     }
 
     .lang-selector a {
       padding: var(--space-1);
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  /* iPhone SE (1ª gen) e dispositivos muito estreitos */
+  @media (max-width: 375px) {
+    .logo-link img {
+      height: 85px;
+      max-width: 220px;
+    }
+
+    .nav-item {
+      font-size: var(--text-lg);
+    }
+
+    .header-container {
+      gap: var(--space-2);
+    }
+  }
+
+  /* iPhone com notch / Dynamic Island — ajuste fino de safe area */
+  @supports (padding: max(0px)) {
+    @media (max-width: 767px) {
+      .site-header {
+        padding-left: max(var(--space-2), env(safe-area-inset-left));
+        padding-right: max(var(--space-2), env(safe-area-inset-right));
+      }
+
+      .nav-list {
+        padding-top: max(var(--space-4), env(safe-area-inset-top));
+        padding-bottom: max(var(--space-4), env(safe-area-inset-bottom));
+      }
     }
   }
 </style>
