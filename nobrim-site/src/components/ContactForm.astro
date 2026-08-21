@@ -1,27 +1,26 @@
 ---
----
 
 <form action="/api/submit" method="POST" class="contact-form">
   <!-- Honeypot para evitar spam (invisível para usuários) -->
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
   <div class="form-group">
-    <label-bg-dark for="name">Nome Completo</label-bg-dark>
+    <label for="name">Nome Completo</label>
     <input type="text" id="name" name="name" placeholder="Ex: Maria Silva" required />
   </div>
 
   <div class="form-group">
-    <label-bg-dark for="company">Empresa</label-bg-dark>
+    <label for="company">Empresa</label>
     <input type="text" id="company" name="company" placeholder="Nome da sua organização" required />
   </div>
 
   <div class="form-group">
-    <label-bg-dark for="email">E-mail Corporativo</label-bg-dark>
+    <label for="email">E-mail Corporativo</label>
     <input type="email" id="email" name="email" placeholder="maria@empresa.com.br" required />
   </div>
 
   <div class="form-group">
-    <label-bg-dark for="message">Como podemos ajudar?</label-bg-dark>
+    <label for="message">Como podemos ajudar?</label>
     <textarea id="message" name="message" rows="4" placeholder="Descreva brevemente o desafio ou cenário atual da sua operação..." required></textarea>
   </div>
 
@@ -36,7 +35,7 @@
     box-shadow: var(--shadow-sm);
   }
   .form-group { margin-bottom: 20px; }
-  label-bg-dark {
+  label {
     display: block;
     font-weight: 500;
     margin-bottom: 8px;
