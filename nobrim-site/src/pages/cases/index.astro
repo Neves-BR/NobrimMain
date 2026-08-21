@@ -14,7 +14,7 @@ const cases = await getCollection('cases');
   lang="pt-BR"
 >
   
-  <main class="page-container py-20 bg-secondary">
+  <div class="page-container py-20 bg-secondary">
     <div class="container">
       <div class="text-center mb-12">
         <h1>Histórias de Transformação</h1>
@@ -36,7 +36,7 @@ const cases = await getCollection('cases');
         ))}
       </div>
     </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
@@ -72,7 +72,7 @@ const cases = await getCollection('cases');
 
   .grid-2 { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 32px; 
   }
 

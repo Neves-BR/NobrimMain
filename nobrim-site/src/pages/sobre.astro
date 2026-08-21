@@ -1,129 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const sobreSchema = {
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "Nobrim Soluções Corporativas",
-    "description": "Consultoria estratégica focada em Gestão da Qualidade, Padronização e Melhoria de Processos."
-  }
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'Nobrim Soluções Corporativas',
+    description: 'Consultoria estratégica em gestão da qualidade, padronização e melhoria de processos.',
+  },
 };
 ---
 
-<BaseLayout 
-  title="Sobre Nós" 
-  description="Conheça a história, a missão e a liderança da Nobrim Soluções Corporativas."
-  lang="pt-BR"
-  schema={sobreSchema}
->
-  
-  <main class="page-container">
-    <section class="hero-internal text-center">
-      <div class="container">
-        <h1>Nossa História</h1>
-        <p class="subtitle">
-          A <strong>Nobrim Soluções Corporativas</strong> nasceu da experiência e do propósito de <strong>Jozelia Silva</strong>, profissional com trajetória sólida construída em Gestão da Qualidade, Auditoria e Melhoria de Processos.
-        </p>
-      </div>
-    </section>
+<BaseLayout title="Sobre nós" description="Conheça a história e a liderança da Nobrim Soluções Corporativas." lang="pt-BR" schema={schema}>
+  <section class="intro">
+    <div class="container narrow">
+      <p class="eyebrow">Sobre a Nobrim</p>
+      <h1>Estrutura para empresas crescerem com clareza</h1>
+      <p>A Nobrim transforma conhecimento técnico em soluções práticas para processos, equipes e decisões mais consistentes.</p>
+    </div>
+  </section>
 
-    <section class="content-section">
-      <div class="container two-columns">
-        <div class="text-content">
-          <h2>Propósito e Atuação</h2>
-          <h5>
-            A Nobrim foi criada com o compromisso de <strong>transformar conhecimento técnico em soluções práticas</strong>, acessíveis e totalmente aplicáveis à realidade de cada negócio.
-          </h5>
-          <p class="mt-4">
-            Acreditamos que <strong>qualidade não precisa ser complexa</strong>. Processos bem definidos, pessoas preparadas e decisões baseadas em informações tornam as empresas mais organizadas, eficientes e preparadas para crescer.
-          </p>
-          <p class="mt-2">
-            Hoje, atuamos com foco estratégico em:
-          </p>
-          <ul class="feature-list mt-4">
-            <li><strong>Gestão da Qualidade & Padronização:</strong> Estruturação de processos eficientes.</li>
-            <li><strong>Melhoria de Processos:</strong> Identificação de oportunidades e eliminação de gargalos.</li>
-            <li><strong>Capacitação & Diagnóstico Empresarial:</strong> Construção de uma cultura sólida de melhoria contínua.</li>
-          </ul>
-        </div>
-        <div class="image-content">
-          <img src="/assets/sobre-placeholder.webp" alt="Diretoria da Nobrim discutindo planejamento estratégico" width="600" height="400" loading="lazy" class="rounded-img shadow-lg" />
-        </div>
+  <section>
+    <div class="container split">
+      <div>
+        <h2>Propósito e atuação</h2>
+        <p>Acreditamos que qualidade não precisa ser complexa. Processos bem definidos, pessoas preparadas e decisões baseadas em informações tornam as empresas mais eficientes e preparadas para crescer.</p>
+        <ul>
+          <li>Gestão da qualidade e padronização.</li>
+          <li>Melhoria de processos e identificação de gargalos.</li>
+          <li>Capacitação e diagnóstico empresarial.</li>
+        </ul>
       </div>
-    </section>
+      <img src="/sobre-img/CEO.png" alt="Fundadora e CEO da Nobrim" width="600" height="400" loading="lazy" class="profile-image" />
+    </div>
+  </section>
 
-    <section class="team-section bg-secondary py-20">
-      <div class="container">
-        <h2 class="text-center mb-12">Nossa Liderança</h2>
-        <div class="grid-1">
-          <!-- Card de Liderança com Bio Atualizada -->
-          <div class="card text-center">
-            <img src="/sobre-img/CEO.png" alt="Jozelia Silva - Fundadora & CEO" width="120" height="120" loading="lazy" class="avatar" />
-            <h3 class="mt-4">Jozelia Silva</h3>
-            <h5 class="mt-2 color-accent">Fundadora & CEO</h5>
-            <p class="mt-4 text-bio">
-              Com mais de <strong>11 anos de experiência profissional</strong> em ambientes corporativos e industriais, Jozelia possui ampla vivência em auditorias, padronização e garantia da qualidade.
-            </p>
-            <p class="mt-2 text-bio">
-              Sua expertise abrange metodologias como <strong>PDCA, 5W2H, Ishikawa, 5 Porquês, fluxogramas e análise de indicadores</strong>, além de profundo conhecimento em normas regulatórias como a <strong>ISO 9001</strong> e <strong>Boas Práticas de Fabricação (BPF)</strong>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <section class="leadership">
+    <div class="container narrow center">
+      <h2>Nossa liderança</h2>
+      <h3>Jozelia Silva</h3>
+      <p class="role">Fundadora e CEO</p>
+      <p>Com mais de 11 anos de experiência em ambientes corporativos e industriais, Jozelia atua com auditorias, padronização, garantia da qualidade e indicadores. Sua experiência abrange PDCA, 5W2H, Ishikawa, 5 Porquês e normas como ISO 9001 e Boas Práticas de Fabricação.</p>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  /* Centralização global do container */
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  /* Ajustes da Seção Hero */
-  .hero-internal { 
-    padding: 80px 24px; 
-    background-color: var(--bg-primary); 
-  }
-  
-  .subtitle {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin: 16px auto 0 auto; /* Centraliza o elemento no bloco */
-    max-width: 672px; /* Substituto para max-w-2xl */
-    text-align: center;
-  }
-
-  /* Demais seções */
-  .content-section { padding: 80px 0; }
-  .two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .feature-list { list-style: none; padding: 0; }
-  .feature-list li { margin-bottom: 12px; position: relative; padding-left: 24px; }
-  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-primary); font-weight: bold; }
-  .rounded-img { border-radius: var(--radius-lg); width: 100%; height: auto; }
-  .avatar { border-radius: 10%; object-fit: cover; margin: 0 auto; display: block; }
-  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-
-  /* Estilos complementares para o card de liderança */
-  .text-bio {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) { .two-columns { grid-template-columns: 1fr; } }
+  .intro { padding: var(--space-12) 0 var(--space-8); background: var(--bg-secondary); }
+  .narrow { max-width: 780px; }
+  .eyebrow, .role { color: var(--accent-primary); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+  .profile-image { width: 100%; max-height: 520px; object-fit: cover; border-radius: var(--radius-lg); }
+  .leadership { background: var(--bg-secondary); }
+  .center { text-align: center; }
+  .center p { margin-inline: auto; }
+  @media (max-width: 768px) { .split { grid-template-columns: 1fr; } }
 </style>

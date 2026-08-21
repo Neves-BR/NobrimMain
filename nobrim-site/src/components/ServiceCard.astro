@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title, description, linkUrl } = Astro.props;
+const plainDescription = description.replace(/<[^>]*>/g, '');
 ---
 
 <article class="card service-card">
@@ -17,7 +18,7 @@ const { title, description, linkUrl } = Astro.props;
     </svg>
   </div>
   <h3>{title}</h3>
-  <p set:html={description}></p>
+  <p>{plainDescription}</p>
   <a href={linkUrl} class="card-link" aria-label={`Saber mais sobre ${title}`}>
     Descobrir mais <span aria-hidden="true">&rarr;</span>
   </a>
