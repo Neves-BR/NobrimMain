@@ -5,7 +5,7 @@ import ServiceCard from '../components/ServiceCard.astro';
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Consultoria de Gestão Empresarial",
+  "serviceType": "Consultoria em Gestão da Qualidade e Processos",
   "provider": {
     "@type": "Organization",
     "name": "Nobrim Soluções Corporativas"
@@ -14,9 +14,12 @@ const servicesSchema = {
     "@type": "OfferCatalog",
     "name": "Serviços de Consultoria B2B",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico Organizacional" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão de Performance" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mapeamento de Processos" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão da Qualidade" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Padronização de Processos" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Melhoria de Processos" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Capacitação & Treinamentos" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico Empresarial" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auditoria e Conformidade" } }
     ]
   }
 };
@@ -24,7 +27,7 @@ const servicesSchema = {
 
 <BaseLayout 
   title="Nossos Serviços" 
-  description="Soluções completas em diagnóstico organizacional, gestão de performance e eficiência de processos."
+  description="Soluções práticas em Gestão da Qualidade, Padronização, Melhoria de Processos e Diagnóstico Empresarial."
   lang="pt-BR"
   schema={servicesSchema}
 >
@@ -34,39 +37,39 @@ const servicesSchema = {
       <div class="text-center mb-12">
         <h1>Áreas de Especialidade</h1>
         <p class="subtitle">
-          Atuamos de ponta a ponta na sua empresa, desde a concepção estratégica até a implantação de rotinas no nível operacional.
+          Transformamos conhecimento técnico em <strong>soluções práticas e aplicáveis</strong>, ajudando sua empresa a estruturar processos, capacitar equipes e construir uma cultura de <strong>melhoria contínua</strong>.
         </p>
       </div>
 
       <div class="grid-3">
         <ServiceCard 
-          title="Diagnóstico Organizacional" 
-          description="Auditoria profunda da estrutura da empresa, identificando sobreposições, ineficiências de custo e oportunidades de ganho de margem." 
+          title="Gestão da Qualidade" 
+          description="Implantação e estruturação de rotinas da qualidade focadas em eficiência, com embasamento em diretrizes da **ISO 9001** e **Boas Práticas de Fabricação (BPF)**." 
           linkUrl="/contato" 
         />
         <ServiceCard 
-          title="Gestão de Performance (OKR/KPI)" 
-          description="Desdobramento da estratégia em metas claras para todos os níveis, com criação de dashboards para acompanhamento executivo." 
+          title="Padronização de Processos" 
+          description="Mapeamento e elaboração de **fluxogramas e documentações práticas**, garantindo consistência operacional, redução de erros e facilidade no treinamento da equipe." 
           linkUrl="/contato" 
         />
         <ServiceCard 
-          title="Otimização de Processos (BPM)" 
-          description="Redesenho de fluxos de trabalho visando eliminar gargalos, reduzir o tempo de ciclo e padronizar a execução das equipes." 
+          title="Melhoria de Processos" 
+          description="Aplicação de metodologias consolidadas como **PDCA, 5W2H, Ishikawa e 5 Porquês** para eliminar gargalos e otimizar a rotina operacional." 
           linkUrl="/contato" 
         />
         <ServiceCard 
-          title="Planejamento Estratégico" 
-          description="Construção da visão de longo prazo da empresa, definição de posicionamento de mercado e estruturação do plano de ação anual." 
+          title="Capacitação & Treinamentos" 
+          description="Desenvolvimento e preparação de equipes para a execução de **processos bem definidos**, fortalecendo o engajamento e a cultura de excelência." 
           linkUrl="/contato" 
         />
         <ServiceCard 
-          title="Governança Corporativa" 
-          description="Estruturação de conselhos, acordos de acionistas e políticas internas para preparar a empresa para sucessão ou captação de recursos." 
+          title="Diagnóstico Empresarial" 
+          description="Análise detalhada do cenário atual do seu negócio para **identificar oportunidades de melhoria**, gargalos produtivos e pontos de ajuste estrutural." 
           linkUrl="/contato" 
         />
         <ServiceCard 
-          title="Turnaround & Reestruturação" 
-          description="Planos de ação emergenciais para adequação de fluxo de caixa, renegociação de passivos e estabilização de operações em crise." 
+          title="Auditoria & Indicadores" 
+          description="Acompanhamento sistemático através de **análise de indicadores de desempenho** e auditorias internas para garantir conformidade e tomada de decisão embasada." 
           linkUrl="/contato" 
         />
       </div>
