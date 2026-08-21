@@ -196,7 +196,7 @@ const breadcrumbSchema = {
     max-height: 420px;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 48px;
+    margin: 0 auto 48px auto; /* Centraliza horizontalmente e mantém a margem inferior */
   }
 
   .case-featured-image img {
@@ -349,6 +349,28 @@ const breadcrumbSchema = {
 
     .content-typography {
       font-size: 1rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .case-card-container {
+      padding: 24px;
+    }
+
+    .case-title {
+      font-size: 1.85rem;
+    }
+
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .content-typography {
+      font-size: 1rem;
+    }
+
+    /* Ocupa mais espaço em telas pequenas sem perder o alinhamento */
+    .case-featured-image {
+      width: 100%;
     }
   }
 </style>
