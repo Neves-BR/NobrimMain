@@ -1,18 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const cases = await getCollection('cases');
-  return cases.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  
+  return cases.map((item) => ({
+    params: { slug: item.id }, // Usa item.id em vez de item.slug
+    props: { item },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
-const { clientName, industry, challenge, result, imageUrl } = entry.data;
+const { item } = Astro.props;
+
+// No Astro v5+, o método de renderização da coleção é importado de 'astro:content'
+const { Content } = await render(item);
+const { clientName, industry, challenge, result, imageUrl } = item.data;
 ---
 
 <BaseLayout title={`${clientName} | Case de Sucesso`} description={challenge}>
