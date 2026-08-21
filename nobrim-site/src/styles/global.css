@@ -522,9 +522,9 @@ p.center {
 
 /* Redução de movimento */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *:not(.logos-marquee, .logos-track, .logos-marquee *, .logos-marquee-wrapper),
+  *:not(.logos-marquee, .logos-track, .logos-marquee *, .logos-marquee-wrapper)::before,
+  *:not(.logos-marquee, .logos-track, .logos-marquee *, .logos-marquee-wrapper)::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
