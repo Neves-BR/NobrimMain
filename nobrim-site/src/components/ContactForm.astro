@@ -10,11 +10,13 @@
   <p class="form-notice">Ao continuar, o WhatsApp da Nobrim será aberto para concluir o atendimento.</p>
   <p class="form-status" aria-live="polite"></p>
   <button type="submit" class="btn-primary w-full">Continuar para o WhatsApp</button>
+  <button type="button" class="btn-email" data-email-contact>Prefiro enviar um e-mail</button>
 </form>
 
 <script>
   const form = document.querySelector('[data-contact-form]');
   const status = form?.querySelector('.form-status');
+  const emailButton = form?.querySelector('[data-email-contact]');
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!(form instanceof HTMLFormElement) || !(status instanceof HTMLElement)) return;
@@ -30,6 +32,22 @@
     status.textContent = 'Abrindo o WhatsApp em uma nova aba…';
     window.open(`https://wa.me/557192858821?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   });
+
+  emailButton?.addEventListener('click', () => {
+    if (!(form instanceof HTMLFormElement) || !(status instanceof HTMLElement)) return;
+    const data = new FormData(form);
+    if (data.get('_honey') || !form.reportValidity()) return;
+    const body = [
+      'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
+      '',
+      `Nome: ${data.get('name')}`,
+      `Empresa: ${data.get('company')}`,
+      `E-mail: ${data.get('email')}`,
+      `Mensagem: ${data.get('message')}`,
+    ].join('\n');
+    status.textContent = 'Abrindo seu cliente de e-mail…';
+    window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
+  });
 </script>
 
 <style>
@@ -38,6 +56,8 @@
   label { color: var(--white); }
   .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; }
   .w-full { width: 100%; justify-content: center; margin-top: 8px; }
+  .btn-email { display: block; width: 100%; margin-top: 12px; padding: 0; border: 0; background: none; color: var(--white); cursor: pointer; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .btn-email:hover { color: var(--accent-primary); }
   .form-notice, .form-status { color: rgba(255, 255, 255, 0.78); font-size: 0.875rem; margin: 0 0 16px; }
   .form-status:empty { display: none; }
 </style>
