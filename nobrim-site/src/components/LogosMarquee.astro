@@ -1,0 +1,39 @@
+---
+interface Props {
+  lang?: 'pt-BR' | 'en';
+}
+const { lang = 'pt-BR' } = Astro.props;
+const isPt = lang === 'pt-BR';
+const title = isPt
+  ? 'Empresas que confiam em nossa metodologia'
+  : 'Companies that trust our methodology';
+const logos = [
+  { src: '/images/clientes/dmedeiros.png', alt: "D'Medeiros", width: 140, height: 40 },
+  { src: '/images/clientes/danof.png', alt: 'DANOF - Beauty Company', width: 140, height: 40 },
+  { src: '/images/clientes/WEEMAKE.png', alt: 'WeeMake', width: 120, height: 40 },
+  { src: '/images/clientes/iteratio.png', alt: 'Iteratio.io', width: 140, height: 40 },
+  { src: '/images/clientes/AgroLogisticaSul-Photoroom.png', alt: 'Agro Logística Sul', width: 140, height: 40 },
+];
+---
+<section class="social-proof-section">
+  <div class="container text-center">
+    <p class="text-secondary text-sm font-semibold uppercase tracking-wider mb-6">{title}</p>
+    <div class="logos-marquee-wrapper" aria-label={title}>
+      <div class="logos-marquee">
+        <!-- Track 1 -->
+        <div class="logos-track">
+          {logos.map((logo) => (
+            <div class="logo-item">
+              <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} loading="lazy" />
+            </div>
+          ))}
+        </div>
+        <!-- Track 2 (duplicação contínua para loop sem emendas) -->
+        <div class="logos-track" aria-hidden="true">
+          {logos.map((logo) => (
+            <div class="logo-item">
+              <img src={logo.src} alt="" width={logo.width} height={logo.height} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
