@@ -27,6 +27,17 @@ const {
 
 const siteUrl = Astro.site;
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const localeRoutes: Record<string, string> = {
+  '/': '/en/', '/sobre': '/en/about', '/servicos': '/en/services', '/cases': '/en/cases',
+  '/contato': '/en/contact', '/conteudos': '/en/resources', '/blog': '/en/blog', '/politica-de-privacidade': '/en/privacy',
+  '/en': '/', '/en/about': '/sobre', '/en/services': '/servicos', '/en/cases': '/cases',
+  '/en/contact': '/contato', '/en/resources': '/conteudos', '/en/blog': '/blog', '/en/privacy': '/politica-de-privacidade',
+};
+const alternatePath = localeRoutes[currentPath];
+const alternateURL = alternatePath ? new URL(alternatePath, siteUrl) : undefined;
+const portugueseURL = lang === 'pt-BR' ? canonicalURL : alternateURL;
+const englishURL = lang === 'en' ? canonicalURL : alternateURL;
 
 // Garante que a imagem do OG seja sempre uma URL absoluta
 const imageURL = new URL(ogImage, canonicalURL).toString();
@@ -48,6 +59,9 @@ const safeSchema = schema
     
     <!-- Canonical -->
     <link rel="canonical" href={canonicalURL} />
+    {portugueseURL && <link rel="alternate" hreflang="pt-BR" href={portugueseURL} />}
+    {englishURL && <link rel="alternate" hreflang="en" href={englishURL} />}
+    {portugueseURL && <link rel="alternate" hreflang="x-default" href={portugueseURL} />}
     
     <!-- Preconnect & DNS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
