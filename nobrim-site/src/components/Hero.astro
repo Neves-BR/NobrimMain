@@ -1,27 +1,40 @@
 ---
-import '../styles/global.css';
+interface Props {
+  lang?: 'pt-BR' | 'en';
+}
+
+const { lang = 'pt-BR' } = Astro.props;
+const isPt = lang === 'pt-BR';
 ---
 
 <section class="hero-section">
   <div class="hero-container">
     <div class="hero-content">
-      <span class="section-tag">Soluções Corporativas</span>
-      <h1>Estratégia e Execução para o Próximo Nível do seu Negócio</h1>
+      <span class="section-tag">{isPt ? 'Soluções Corporativas' : 'Corporate Solutions'}</span>
+      <h1>{isPt ? 'Estratégia e Execução para o Próximo Nível do seu Negócio' : 'Strategy and Execution for the Next Level of Your Business'}</h1>
       <p>
-        Diagnosticamos gargalos operacionais e implementamos soluções de gestão 
-        que geram impacto direto na última linha do seu balanço. Desbloqueie o 
-        verdadeiro potencial da sua operação.
+        {isPt 
+          ? 'Diagnosticamos gargalos operacionais e implementamos soluções de gestão que geram impacto direto na última linha do seu balanço. Desbloqueie o verdadeiro potencial da sua operação.'
+          : 'We diagnose operational bottlenecks and implement management solutions that deliver direct impact on your bottom line. Unlock the true potential of your operation.'
+        }
       </p>
       <div class="hero-actions">
-        <a href="/contato" class="btn-primary">Agendar Diagnóstico</a>
-        <a href="/servicos" class="btn-secondary">Conhecer Soluções</a>
+        <a href={isPt ? '/contato' : '/en/contact'} class="btn-primary">
+          {isPt ? 'Agendar Diagnóstico' : 'Schedule Assessment'}
+        </a>
+        <a href={isPt ? '/servicos' : '/en/services'} class="btn-secondary">
+          {isPt ? 'Conhecer Soluções' : 'Explore Solutions'}
+        </a>
       </div>
     </div>
     
     <div class="hero-image-wrapper">
       <img 
         src="/Hero.webp" 
-        alt="Equipe de consultores da Nobrim analisando painéis de performance em uma sala de reunião" 
+        alt={isPt 
+          ? "Equipe de consultores da Nobrim analisando painéis de performance em uma sala de reunião"
+          : "Nobrim consulting team analyzing performance dashboards in a meeting room"
+        } 
         width="600" 
         height="400"
         loading="eager"
