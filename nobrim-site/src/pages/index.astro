@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import LogosMarquee from '../components/LogosMarquee.astro';
 
 // Schema.org para a Home (Organization, WebSite e FAQPage para AEO/AIO)
 const homeSchema = {
@@ -95,34 +96,10 @@ const homeSchema = {
   schema={homeSchema}
 >
   <!-- 1. Hero Section -->
-  <Hero />
+  <Hero lang="pt-BR" />
 
-  <!-- 2. Social Proof (Logos) -->
-  <section class="social-proof-section">
-    <div class="container text-center">
-      <p class="text-secondary text-sm font-semibold uppercase tracking-wider mb-6">Empresas que confiam em nossa metodologia</p>
-      <div class="logos-marquee-wrapper">
-        <div class="logos-marquee">
-          <!-- Primeira fileira de logos -->
-          <div class="logos-track">
-            <img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="120" height="40" loading="lazy" />
-            <img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="120" height="40" loading="lazy" />
-            <img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="120" loading="lazy" />
-            <img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="120" height="40" loading="lazy" />
-            <img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="120" height="40" loading="lazy" />
-          </div>
-          <!-- Duplicata para loop infinito -->
-          <div class="logos-track" aria-hidden="true">
-            <img src="/images/clientes/dmedeiros.png" alt="D'Medeiros" width="120" height="40" loading="lazy" />
-            <img src="/images/clientes/danof.png" alt="DANOF - Beauty Company" width="120" height="40" loading="lazy" />
-            <img src="/images/clientes/WEEMAKE.png" alt="WeeMake" width="120" height="120" loading="lazy" />
-            <img src="/images/clientes/iteratio.png" alt="Iteratio.io" width="120" height="40" loading="lazy" />
-            <img src="/images/clientes/AgroLogisticaSul-Photoroom.png" alt="Agro Logística Sul" width="120" height="40" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 2. Social Proof (Logos Marquee) -->
+  <LogosMarquee lang="pt-BR" />
 
   <!-- 3. Serviços Overview (Placeholder da estrutura) -->
   <section class="services-section bg-secondary py-20">
@@ -180,68 +157,6 @@ const homeSchema = {
   .uppercase { text-transform: uppercase; }
   .tracking-wider { letter-spacing: 0.05em; }
   .bg-secondary { background-color: var(--bg-secondary); }
-
-  .social-proof-section {
-    padding: 40px 0;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .logos-marquee-wrapper {
-    overflow: hidden;
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 10%,
-      black 90%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 10%,
-      black 90%,
-      transparent
-    );
-  }
-
-  .logos-marquee {
-    display: flex;
-    width: max-content;
-    animation: scroll-logos 20s linear infinite;
-  }
-
-  .logos-marquee:hover {
-    animation-play-state: paused;
-  }
-
-  .logos-track {
-    display: flex;
-    align-items: center;
-    gap: 64px;
-    padding-right: 64px;
-    flex-shrink: 0;
-  }
-
-  .logos-track img {
-    opacity: 0.6;
-    filter: grayscale(100%);
-    transition: filter var(--transition-base), opacity var(--transition-base);
-    flex-shrink: 0;
-  }
-
-  .logos-track img:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-  }
-
-  @keyframes scroll-logos {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
 
   .services-grid {
     display: grid;

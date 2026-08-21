@@ -1,9 +1,119 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import LogosMarquee from '../../components/LogosMarquee.astro';
+
+// Schema.org for the English Home page
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.nobrim.com.br/#organization",
+      "name": "Nobrim Soluções Corporativas",
+      "url": "https://www.nobrim.com.br/en/",
+      "logo": "https://www.nobrim.com.br/logo-nobrim.webp",
+      "description": "Brazilian management consulting firm specialized in organizational diagnosis, quality management, process optimization, and performance management.",
+      "founder": {
+        "@type": "Person",
+        "name": "Jozelia Silva",
+        "jobTitle": "Founder and CEO"
+      }
+    }
+  ]
+};
 ---
 
-<BaseLayout title="Strategic Consulting and Management" description="Nobrim turns business complexity into measurable results through consulting in management and processes." lang="en">
-  <section class="hero text-center"><div class="container narrow"><p class="eyebrow">Corporate solutions</p><h1>Strategy and execution for your business to move forward</h1><p class="subtitle">We diagnose operational bottlenecks and implement management solutions that deliver measurable impact.</p><div class="actions"><a class="btn-primary" href="/en/contact">Schedule a consultation</a><a class="btn-secondary" href="/en/services">Explore services</a></div></div></section>
-  <section><div class="container"><h2>Areas of expertise</h2><div class="grid"><article class="card"><h3>Quality Management</h3><p>Structured routines that make quality practical and consistent.</p></article><article class="card"><h3>Process Improvement</h3><p>Mapping and redesign to reduce waste, errors and delays.</p></article><article class="card"><h3>Business Diagnosis</h3><p>A clear view of priorities, risks and improvement opportunities.</p></article></div></div></section>
+<BaseLayout 
+  title="Strategic Consulting & Management" 
+  description="Nobrim turns business complexity into measurable results through specialized consulting in management and process optimization."
+  lang="en"
+  schema={homeSchema}
+>
+  <!-- 1. Hero Section -->
+  <Hero lang="en" />
+
+  <!-- 2. Social Proof (Logos Marquee) -->
+  <LogosMarquee lang="en" />
+
+  <!-- 3. Services Overview -->
+  <section class="services-section bg-secondary py-20">
+    <div class="container">
+      <div class="section-header text-center mb-12">
+        <h2>Areas of Expertise</h2>
+        <h4>Targeted expertise for your company's most critical operational challenges.</h4>
+      </div>
+      
+      <div class="services-grid">
+        <div class="card">
+          <h3>Organizational Assessment</h3>
+          <p>Comprehensive mapping of your structure to identify inefficiencies, overlapping roles, and actionable cost-reduction opportunities.</p>
+          <a href="/en/services" class="text-accent mt-4 inline-block font-semibold">Learn more &rarr;</a>
+        </div>
+        <div class="card">
+          <h3>Performance Management</h3>
+          <p>Implementation of strategic OKRs and KPIs to ensure all company levels are fully aligned with long-term leadership goals.</p>
+          <a href="/en/services" class="text-accent mt-4 inline-block font-semibold">Learn more &rarr;</a>
+        </div>
+        <div class="card">
+          <h3>Process Transformation</h3>
+          <p>Redesigning workflows (BPM) to increase operational agility, eliminate waste, and scale your business model efficiently.</p>
+          <a href="/en/services" class="text-accent mt-4 inline-block font-semibold">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA Final -->
+  <section class="cta-section py-20 text-center">
+    <div class="container">
+      <h2>Ready to optimize your operations?</h2>
+      <p class="mb-8 max-w-2xl mx-auto">Speak with one of our specialists and discover how Nobrim can structure a tailored action plan for your business.</p>
+      <a href="/en/contact" class="btn-primary">Request a Consultation</a>
+    </div>
+  </section>
 </BaseLayout>
-<style>.hero{padding:var(--space-12) 0;background:var(--bg-secondary);text-align:center}.narrow{max-width:800px;margin-inline:auto}.eyebrow{color:var(--accent-primary);font-weight:700;text-transform:uppercase}.subtitle{max-width:680px;margin:16px auto 32px auto;text-align:center;color:var(--text-secondary)}.actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}@media(max-width:768px){.grid{grid-template-columns:1fr}}</style>
+
+<style>
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .text-center { text-align: center; }
+  .py-20 { padding-top: 80px; padding-bottom: 80px; }
+  .mb-6 { margin-bottom: 24px; }
+  .mb-8 { margin-bottom: 32px; }
+  .mb-12 { margin-bottom: 48px; }
+  .mt-4 { margin-top: 16px; }
+  .max-w-2xl { max-width: 42rem; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .text-secondary { color: var(--text-secondary); }
+  .text-accent { color: var(--accent-primary); }
+  .font-semibold { font-weight: 600; }
+  .uppercase { text-transform: uppercase; }
+  .tracking-wider { letter-spacing: 0.05em; }
+  .bg-secondary { background-color: var(--bg-secondary); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .card {
+    text-align: center;
+  }
+
+  .card h3,
+  .card p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-header h2,
+  .cta-section h2,
+  .cta-section p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
