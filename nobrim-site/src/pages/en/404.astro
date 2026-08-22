@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Page not found" 
+  description="The page you are looking for was not found. Return to the Nobrim Corporate Solutions homepage." 
+  lang="en"
+  robots="noindex,nofollow"
+>
+  <section class="error-hero">
+    <div class="container narrow text-center">
+      <div class="error-code" aria-label="Error 404">404</div>
+      <h1>Page not found</h1>
+      <p class="error-message">
+        It looks like you followed a path that no longer exists or never existed. 
+        But don't worry — we're here to help you find what you need.
+      </p>
+      <div class="error-actions">
+        <a href="/en/" class="btn-primary">Back to homepage</a>
+        <a href="/en/contact" class="btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="error-suggestions">
+    <div class="container narrow">
+      <h2>What you can do:</h2>
+      <ul class="suggestion-list">
+        <li>
+          <strong>Check the address</strong> — Make sure you typed the URL correctly in the browser.
+        </li>
+        <li>
+          <strong>Explore our site</strong> — Discover our <a href="/en/services">services</a>, <a href="/en/cases">success cases</a> or <a href="/en/resources">resources</a>.
+        </li>
+        <li>
+          <strong>Get in touch</strong> — If you need help, <a href="/en/contact">contact us</a>.
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-hero {
+    padding: var(--space-12) 0 var(--space-8);
+    background: var(--bg-secondary);
+    text-align: center;
+  }
+
+  .error-code {
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 12vw, 10rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent-primary);
+    opacity: 0.15;
+    margin-bottom: var(--space-4);
+    user-select: none;
+  }
+
+  .error-hero h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .error-message {
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+  }
+
+  .error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .error-suggestions {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+  }
+
+  .error-suggestions h2 {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+
+  .suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .suggestion-list li {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    margin: 0;
+    transition: box-shadow var(--transition-base);
+  }
+
+  .suggestion-list li:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .suggestion-list li::marker {
+    display: none;
+  }
+
+  .suggestion-list strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+  }
+
+  .suggestion-list a {
+    font-weight: 500;
+  }
+
+  @media (max-width: 479px) {
+    .error-actions {
+      flex-direction: column;
+    }
+    .error-actions .btn-primary,
+    .error-actions .btn-secondary {
+      width: 100%;
+    }
+  }
+</style>
