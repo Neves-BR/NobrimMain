@@ -31,8 +31,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const localeRoutes: Record<string, string> = {
   '/': '/en/', '/sobre': '/en/about', '/servicos': '/en/services', '/cases': '/en/cases',
   '/contato': '/en/contact', '/conteudos': '/en/resources', '/blog': '/en/blog', '/politica-de-privacidade': '/en/privacy',
+  '/404': '/en/404',
   '/en': '/', '/en/about': '/sobre', '/en/services': '/servicos', '/en/cases': '/cases',
   '/en/contact': '/contato', '/en/resources': '/conteudos', '/en/blog': '/blog', '/en/privacy': '/politica-de-privacidade',
+  '/en/404': '/404',
 };
 let alternatePath = localeRoutes[currentPath];
 if (!alternatePath && currentPath.startsWith('/cases/')) {
