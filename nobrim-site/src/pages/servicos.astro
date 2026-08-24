@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 
 const servicesSchema = {
-  {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -75,6 +74,13 @@ const servicesSchema = {
   ]
 };
 ---
+
+<BaseLayout title="Serviços | Nobrim Soluções Corporativas">
+  <!-- Como renderizar o JSON-LD no Astro -->
+  <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
+
+  <!-- Seu conteúdo HTML da página aqui -->
+</BaseLayout>
 
 <BaseLayout 
   title="Nossos Serviços" 
