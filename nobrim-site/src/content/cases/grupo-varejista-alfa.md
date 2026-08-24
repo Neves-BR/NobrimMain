@@ -1,6 +1,6 @@
 ---
-clientName: "Grupo Varejista Alfa"
-industry: "Varejo e Distribuição"
+clientName: "Grupo Danof"
+industry: "Cosméticos"
 challenge: "Excesso de estoque descentralizado, descompasso nas compras e rupturas nas gôndolas das principais filiais."
 result: "Centralização do S&OP (Planejamento de Vendas e Operações), diminuindo o capital de giro retido em R$ 4 milhões."
 imageUrl: "/images/clientes/danof.png"
@@ -8,7 +8,7 @@ imageUrl: "/images/clientes/danof.png"
 
 ## Sobre o Cliente
 
-O **Grupo Varejista Alfa** opera uma rede com mais de 45 lojas de varejo e supermercados no Nordeste do Brasil, alimentada por 2 centros de distribuição integrados.
+O **Grupo Danof** opera uma rede com mais de 5 lojas de varejo próprias e drogarias no Nordeste do Brasil, alimentada por 2 centros de distribuição integrados.
 
 ---
 
