@@ -75,20 +75,14 @@ const servicesSchema = {
 };
 ---
 
-<BaseLayout title="Serviços | Nobrim Soluções Corporativas">
-  <!-- Como renderizar o JSON-LD no Astro -->
-  <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
-
-  <!-- Seu conteúdo HTML da página aqui -->
-</BaseLayout>
-
 <BaseLayout 
-  title="Nossos Serviços" 
+  title="Nossos Serviços | Nobrim Soluções Corporativas" 
   description="Soluções práticas em Gestão da Qualidade, Padronização, Melhoria de Processos e Diagnóstico Empresarial."
   lang="pt-BR"
-  schema={servicesSchema}
 >
-  
+  <!-- Injeção limpa do JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} slot="head" />
+
   <div class="page-container py-20">
     <div class="container">
       <div class="text-center mb-12">
@@ -98,7 +92,7 @@ const servicesSchema = {
         </p>
       </div>
 
-     <div class="grid-3">
+      <div class="grid-3">
         <ServiceCard 
           title="Diagnóstico Nobrim 360º" 
           description="Análise integrada de processos, controles e práticas de gestão para <strong>identificar gargalos e prioridades estratégicas</strong>, direcionando as melhores tomadas de decisão para o seu negócio." 
@@ -129,12 +123,11 @@ const servicesSchema = {
           linkUrl="/contato" 
         />
       </div>
-      </div>
     </div>
+  </div>
 </BaseLayout>
 
 <style>
-  /* Centralização do container principal */
   .container {
     width: 100%;
     max-width: 1200px;
