@@ -1,42 +1,42 @@
 ---
-clientName: "Indústria Vektor"
-industry: "Manufatura e Metalmecânica"
-challenge: "Altos custos de produção devido a ineficiências no chão de fábrica, gargalos de setup e falta de padronização nos processos fabris."
-result: "Redução de 18% nos custos operacionais em 6 meses através da implantação de Lean Manufacturing e padronização ISO 9001."
+clientName: "WeeMake"
+industry: "Tecnologia e Software (SaaS)"
+challenge: "Falta de previsibilidade financeira, gargalos no onboarding de novos clientes e processos operacionais descentralizados em fase de escala."
+result: "Redução de 35% no CAC e diminuição do tempo de onboarding de clientes de 14 para 3 dias após a padronização de processos."
 imageUrl: "/images/clientes/WEEMAKE.png"
 ---
 
 ## Sobre o Cliente
 
-A **Indústria Vektor** é uma empresa de manufatura de grande porte especializada em componentes metálicos e usinagem de alta precisão para o setor automotivo e industrial.
+A **SaaS Flowtech** é uma startup de tecnologia em estágio inicial que desenvolve uma plataforma B2B de automação de fluxos de trabalho para médias empresas.
 
 ---
 
 ## O Desafio
 
-Com a expansão da linha de produtos, a planta fabril da Vektor começou a apresentar gargalos produtivos e elevação dos custos operacionais devido a:
+Após validar o produto e iniciar a fase de tração, a Flowtech passou a enfrentar dificuldades operacionais e financeiras decorrentes do crescimento acelerado sem processos estruturados:
 
-* **Tempos de Setup Elevados (SMED):** Trocas de ferramentas demoradas nas máquinas CNC, gerando ociosidade do maquinário.
-* **Gargalos de Refugo e Retrabalho:** Falta de procedimentos operacionais padrão (POP) atualizados e rotinas de controle de qualidade na linha.
-* **Falta de Indicadores em Tempo Real:** Ausência de dados consolidados sobre o OEE (Overall Equipment Effectiveness) da fábrica.
+* **Gestão Financeira Descentralizada:** Falta de controle rígido do fluxo de caixa, precificação sem margem clara e inconsistência na previsão de *Revenue* (MRR/ARR).
+* **Onboarding Lento e Despadronizado:** Ausência de um *Playbook* de Implantação, gerando dependência excessiva dos fundadores e insatisfação inicial dos clientes.
+* **Gargalos Operacionais em Vendas e CS:** Falta de integração entre o funil do CRM e a passagem de bastão para o Sucesso do Cliente, resultando em *Churn* precoce.
 
 ---
 
 ## A Solução Nobrim
 
-A Nobrim atuou no redesenho estruturado da operação fabril combinando conceitos de Lean Manufacturing e Gestão da Qualidade:
+A Nobrim atuou no desenho da arquitetura organizacional e financeira da startup, preparando a operação para uma escala sustentável:
 
-* **Mapeamento do Fluxo de Valor (VSM):** Identificação dos pontos de desperdício e redesenho do layout produtivo.
-* **Padronização e Qualidade na Fonte:** Implantação de POPs visuais, treinamento da equipe de operadores e matriz de versatilidade.
-* **Estruturação de KPIs e Rotinas de PDCA:** Implementação de reuniões diárias de acompanhamento (Quick Response Quality Control) e acompanhamento de OEE.
+* **Estruturação do DRE e Governança Financeira:** Implementação de DRE Gerencial, centro de custos, fluxo de caixa projetado e automação do faturamento recorrente.
+* **Mapeamento e Padronização de Processos (SOPs):** Criação dos *Playbooks* operacionais de Vendas, Onboarding e Atendimento ao Cliente, eliminando pontos de atrito.
+* **Implementação de Rotinas e KPIs SaaS:** Definição e acompanhamento em tempo real de métricas cruciais como CAC, LTV, *Churn Rate* e *Payback*.
 
 ---
 
 ## Resultados Alcançados
 
-| Métrica Operacional | Antes da Nobrim | Com a Nobrim | Impacto Gerado |
+| Métrica Operacional/Financeira | Antes da Nobrim | Com a Nobrim | Impacto Gerado |
 | :--- | :--- | :--- | :--- |
-| **Custo Operacional Total** | Base 100% | Base 82% | **18% de redução** |
-| **Tempo de Setup (Troca de Ferramentas)** | 55 minutos | 18 minutos | **67% de agilidade** |
-| **Índice de Retrabalho (Scrap Rate)** | 4,8% | 0,9% | **81% de melhoria** |
-| **OEE Global da Planta** | 62% | 84% | **+22 p.p. de produtividade** |
+| **Tempo Médio de Onboarding** | 14 dias | 3 dias | **78% de agilidade** |
+| **Inadimplência / Atrasos em Faturas** | 12,5% | 1,8% | **85% de redução** |
+| **Custo de Aquisição de Clientes (CAC)** | R$ 1.800 | R$ 1.170 | **35% de economia** |
+| **Taxa de Retenção Net (NDR)** | 88% | 112% | **+24 p.p. de retenção** |
