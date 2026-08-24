@@ -1,3 +1,14 @@
+---
+clientName: "D' Medeiros Cosméticos"
+industry: "Indústria de Cosméticos e Cuidados Pessoais"
+challenge: "Gargalos operacionais na linha de produção, atrasos na expedição de pedidos B2B e falta de padronização nos processos fabris e administrativos."
+result: "Otimização de processos via Iteratio com consultoria da Nobrim, reduzindo em 60% o tempo do ciclo de pedidos e aumentando a capacidade produtiva."
+imageUrl: "/images/clientes/dmedeiros.png"
+---
+
+## Sobre o Cliente
+
+A **D' Medeiros Cosméticos** é uma empresa industrial especializada no desenvolvimento, fabricação e distribuição de produtos cosméticos e de cuidados pessoais, atendendo clientes B2B como distribuidores, redes de farmácias e salões de beleza em todo o Brasil.
 
 ---
 
