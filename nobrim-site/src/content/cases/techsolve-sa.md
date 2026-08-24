@@ -1,42 +1,42 @@
 ---
-clientName: "TechSolve S.A."
-industry: "Tecnologia B2B e Software"
-challenge: "Crescimento desordenado causando atrito entre as áreas de Vendas e CS (Customer Success), com alto tempo de onboarding de clientes."
-result: "Redesenho da jornada do cliente e alinhamento de KPIs (SLA), aumentando a retenção de clientes em 35% e reduzindo o churn."
-imageUrl: "/images/clientes/iteratio.png"
+clientName: "D' Medeiros Cosméticos"
+industry: "Indústria de Cosméticos e Cuidados Pessoais"
+challenge: "Gargalos operacionais na linha de produção, atrasos na expedição de pedidos B2B e falta de padronização nos processos fabris e administrativos."
+result: "Mapeamento e otimização de processos via Iteratio, reduzindo em 40% o tempo do ciclo de pedidos e aumentando a capacidade produtiva."
+imageUrl: "/images/clientes/dmedeiros.png"
 ---
 
 ## Sobre o Cliente
 
-A **TechSolve S.A.** é uma empresa brasileira de tecnologia B2B fornecedora de plataformas SaaS (Software as a Service) para gestão financeira e compliance corporativo.
+A **D' Medeiros Cosméticos** é uma empresa industrial especializada no desenvolvimento, fabricação e distribuição de produtos cosméticos e de cuidados pessoais, atendendo clientes B2B como distribuidores, redes de farmácias e salões de beleza em todo o Brasil.
 
 ---
 
 ## O Desafio
 
-Após uma rodada de captação de investimentos, a empresa triplicou sua base de clientes em 12 meses. No entanto, o crescimento acelerado gerou desalinhamento operacional:
+Com o aumento da demanda por novas linhas de produtos e a expansão da carteira de clientes B2B, a fábrica e a operação da D' Medeiros começaram a enfrentar gargalos estruturais e falta de alinhamento entre as áreas:
 
-* **Passagem de Bastão Deficiente:** A equipe comercial prometia prazos e escopos que a equipe de Customer Success (CS) não conseguia entregar.
-* **Onboarding Lento:** O tempo para o cliente atingir o primeiro valor percebido (*Time-to-Value*) superava 90 dias.
-* **Elevação do Churn Inicial:** 25% dos novos clientes cancelavam a assinatura nos primeiros 6 meses de contrato.
+* **Inconsistência nos Processos de Produção e Envase:** Ausência de procedimentos operacionais padronizados (POPs) visíveis, resultando em retrabalho, variações no tempo de lote e desperdício de insumos.
+* **Lentidão no Processamento e Expedição de Pedidos:** A passagem de informação entre o Comercial, Financeiro e Logística ocorria de forma descentralizada, gerando atrasos no faturamento e no envio das mercadorias.
+* **Dificuldade na Identificação de Gargalos:** Falta de uma ferramenta centralizada para mapear os fluxos de trabalho, diagnosticar falhas recorrentes e acompanhar planos de ação para melhoria contínua.
 
 ---
 
-## A Solução Nobrim
+## A Solução com Iteratio (WeeMake)
 
-A Nobrim realizou uma consultoria de reestruturação de processos focada na jornada de ponta a ponta do cliente:
+A D' Medeiros implementou o **Iteratio**, o SaaS B2B da **WeeMake**, para capacitar suas equipes internas a mapear, analisar e otimizar autonomamente seus processos operacionais e administrativos:
 
-* **SLA Integrado Comercial-CS:** Redefinição do processo de handoff com critérios claros de qualificação e documentação obrigatória no CRM.
-* **Mapeamento e Redesenho do Onboarding (BPM):** Padronização das etapas de implantação, reduzindo etapas manuais e configurando automações.
-* **Implementação de KPIs Unificados:** Definição de metas compartilhadas de retenção e CSAT/NPS entre a diretoria comercial e operacional.
+* **Mapeamento de Processos Ponta a Ponta:** Os líderes de produção, logística e finanças mapearam visualmente todos os fluxos de trabalho no Iteratio, padronizando os procedimentos fabris e as etapas de faturamento B2B.
+* **Diagnóstico de Oportunidades de Melhoria:** Utilização das ferramentas analíticas do Iteratio para identificar etapas redundantes no recebimento de pedidos e no controle de qualidade da fábrica, eliminando atritos de comunicação.
+* **Execução e Acompanhamento de Planos de Ação:** Adoção de matrizes de priorização e rotinas de melhoria contínua dentro da própria plataforma, garantindo previsibilidade de entregas e padronização contínua.
 
 ---
 
 ## Resultados Alcançados
 
-| Métrica Negócios / CS | Antes da Nobrim | Com a Nobrim | Impacto Gerado |
+| Métrica Operacional / Negócios | Antes do Iteratio | Com o Iteratio | Impacto Gerado |
 | :--- | :--- | :--- | :--- |
-| **Taxa de Retenção de Clientes** | 75% | 92% | **35% de ganho relativo** |
-| **Tempo de Onboarding (TTV)** | 92 dias | 24 dias | **74% de redução** |
-| **Taxa de Churn nos 6 Primeiros Meses** | 25% | 4,2% | **83% de redução no churn** |
-| **NPS (Net Promoter Score)** | 42 | 78 | **+36 pontos no NPS** |
+| **Tempo do Ciclo de Pedido (Order Lead Time)** | 10 dias úteis | 4 dias úteis | **60% de redução no tempo** |
+| **Índice de Retrabalho no Envase/Embalagem** | 6,5% | 1,2% | **81% de redução de falhas** |
+| **Cumprimento de SLA de Expedição B2B** | 72% | 96% | **+24 p.p. de pontualidade** |
+| **Capacidade Produtiva da Planta** | Base 100% | Base 135% | **+35% de produtividade** |
