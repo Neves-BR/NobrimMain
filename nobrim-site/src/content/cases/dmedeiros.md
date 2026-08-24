@@ -1,14 +1,3 @@
----
-clientName: "D' Medeiros Cosméticos"
-industry: "Indústria de Cosméticos e Cuidados Pessoais"
-challenge: "Gargalos operacionais na linha de produção, atrasos na expedição de pedidos B2B e falta de padronização nos processos fabris e administrativos."
-result: "Mapeamento e otimização de processos via Iteratio, reduzindo em 40% o tempo do ciclo de pedidos e aumentando a capacidade produtiva."
-imageUrl: "/images/clientes/dmedeiros.png"
----
-
-## Sobre o Cliente
-
-A **D' Medeiros Cosméticos** é uma empresa industrial especializada no desenvolvimento, fabricação e distribuição de produtos cosméticos e de cuidados pessoais, atendendo clientes B2B como distribuidores, redes de farmácias e salões de beleza em todo o Brasil.
 
 ---
 
@@ -22,19 +11,19 @@ Com o aumento da demanda por novas linhas de produtos e a expansão da carteira 
 
 ---
 
-## A Solução com Iteratio (WeeMake)
+## A Solução com Consultoria Nobrim & Iteratio (WeeMake)
 
-A D' Medeiros implementou o **Iteratio**, o SaaS B2B da **WeeMake**, para capacitar suas equipes internas a mapear, analisar e otimizar autonomamente seus processos operacionais e administrativos:
+Com o suporte estratégico da consultoria **Nobrim**, a D' Medeiros implementou a plataforma **Iteratio** (desenvolvida pela **WeeMake**) para estruturar e acelerar a transformação digital dos seus processos fabris e administrativos:
 
-* **Mapeamento de Processos Ponta a Ponta:** Os líderes de produção, logística e finanças mapearam visualmente todos os fluxos de trabalho no Iteratio, padronizando os procedimentos fabris e as etapas de faturamento B2B.
+* **Mapeamento de Processos Ponta a Ponta:** Guiados pelas metodologias da Nobrim, os líderes de produção, logística e finanças mapearam visualmente todos os fluxos de trabalho no Iteratio, padronizando os procedimentos fabris e as etapas de faturamento B2B.
 * **Diagnóstico de Oportunidades de Melhoria:** Utilização das ferramentas analíticas do Iteratio para identificar etapas redundantes no recebimento de pedidos e no controle de qualidade da fábrica, eliminando atritos de comunicação.
-* **Execução e Acompanhamento de Planos de Ação:** Adoção de matrizes de priorização e rotinas de melhoria contínua dentro da própria plataforma, garantindo previsibilidade de entregas e padronização contínua.
+* **Execução e Acompanhamento de Planos de Ação:** Adoção de matrizes de priorização e rotinas de melhoria contínua dentro da própria plataforma, garantindo previsibilidade de entregas e padronização contínua sob a governança da consultoria.
 
 ---
 
 ## Resultados Alcançados
 
-| Métrica Operacional / Negócios | Antes do Iteratio | Com o Iteratio | Impacto Gerado |
+| Métrica Operacional / Negócios | Antes da Consultoria | Com Nobrim + Iteratio | Impacto Gerado |
 | :--- | :--- | :--- | :--- |
 | **Tempo do Ciclo de Pedido (Order Lead Time)** | 10 dias úteis | 4 dias úteis | **60% de redução no tempo** |
 | **Índice de Retrabalho no Envase/Embalagem** | 6,5% | 1,2% | **81% de redução de falhas** |
