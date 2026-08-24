@@ -8,7 +8,7 @@ imageUrl: "/images/clientes/WEEMAKE.png"
 
 ## Sobre o Cliente
 
-A **SaaS Flowtech** é uma startup de tecnologia em estágio inicial que desenvolve uma plataforma B2B de automação de fluxos de trabalho para médias empresas.
+A **WeeMake** é uma startup de tecnologia em estágio inicial que desenvolve soluções B2B de automação de fluxos de trabalho para pequenas e médias empresas.
 
 ---
 
