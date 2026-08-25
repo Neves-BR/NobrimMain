@@ -1,5 +1,6 @@
 ---
 ---
+
 <form class="contact-form" data-contact-form>
   <div class="form-group"><label for="name">Nome completo</label><input type="text" id="name" name="name" autocomplete="name" required /></div>
   <div class="form-group"><label for="company">Empresa</label><input type="text" id="company" name="company" autocomplete="organization" required /></div>
@@ -12,97 +13,75 @@
 </form>
 
 <script is:inline>
-  (function () {
-    'use strict';
+  document.addEventListener('submit', (event) => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-contact-form')) return;
 
-    function redirectToWhatsApp(form) {
-      const data = new FormData(form);
-      const status = form.querySelector('.form-status');
+    event.preventDefault();
+    const status = form.querySelector('.form-status');
+    const data = new FormData(form);
 
-      const name = (data.get('name') || '').toString().trim();
-      const company = (data.get('company') || '').toString().trim();
-      const email = (data.get('email') || '').toString().trim();
-      const message = (data.get('message') || '').toString().trim();
+    if (!form.reportValidity()) return;
 
-      if (!name || !company || !email || !message) {
-        if (status) status.textContent = 'Preencha todos os campos obrigatórios.';
-        return;
-      }
+    // Linhas em branco ('') criam parágrafos adicionais no WhatsApp
+    const message = [
+      'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
+      '',
+      `*Nome:* ${data.get('name')}`,
+      '',
+      `*Empresa:* ${data.get('company')}`,
+      '',
+      `*E-mail:* ${data.get('email')}`,
+      '',
+      `*Mensagem:* ${data.get('message')}`,
+    ].join('\n');
 
-      if (status) status.textContent = 'Redirecionando para o WhatsApp…';
-
-      const text = [
-        'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
-        `Nome: ${name}`,
-        `Empresa: ${company}`,
-        `E-mail: ${email}`,
-        `Mensagem: ${message}`,
-      ].join('\n');
-
-      window.location.href = `https://wa.me/557192858821?text=${encodeURIComponent(text)}`;
+    if (status instanceof HTMLElement) {
+      status.textContent = 'Redirecionando para o WhatsApp…';
     }
 
-    function redirectToEmail(form) {
-      const data = new FormData(form);
-      const status = form.querySelector('.form-status');
+    window.location.href = `https://wa.me/557192858821?text=${encodeURIComponent(message)}`;
+  });
 
-      const name = (data.get('name') || '').toString().trim();
-      const company = (data.get('company') || '').toString().trim();
-      const email = (data.get('email') || '').toString().trim();
-      const message = (data.get('message') || '').toString().trim();
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
 
-      if (!name || !company || !email || !message) {
-        if (status) status.textContent = 'Preencha todos os campos obrigatórios.';
-        return;
-      }
+    const emailButton = target.closest('[data-email-contact]');
+    if (!emailButton) return;
 
-      if (status) status.textContent = 'Abrindo seu cliente de e-mail…';
+    const form = emailButton.closest('[data-contact-form]');
+    if (!(form instanceof HTMLFormElement)) return;
 
-      const body = [
-        'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
-        '',
-        `Nome: ${name}`,
-        `Empresa: ${company}`,
-        `E-mail: ${email}`,
-        `Mensagem: ${message}`,
-      ].join('\n');
+    const status = form.querySelector('.form-status');
+    const data = new FormData(form);
 
-      window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
+    if (!form.reportValidity()) return;
+
+    const body = [
+      'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
+      '',
+      `Nome: ${data.get('name')}`,
+      '',
+      `Empresa: ${data.get('company')}`,
+      '',
+      `E-mail: ${data.get('email')}`,
+      '',
+      `Mensagem: ${data.get('message')}`,
+    ].join('\n');
+
+    if (status instanceof HTMLElement) {
+      status.textContent = 'Abrindo seu cliente de e-mail…';
     }
 
-    function init() {
-      const form = document.querySelector('[data-contact-form]');
-      if (!form) return;
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        redirectToWhatsApp(form);
-      });
-
-      const emailBtn = form.querySelector('[data-email-contact]');
-      if (emailBtn) {
-        emailBtn.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          redirectToEmail(form);
-        });
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
+    window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
+  });
 </script>
 
 <style>
   .contact-form { background-color: var(--bg-primary-alt); padding: 32px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
   .form-group { margin-bottom: 20px; }
   label { color: var(--white); }
-  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; }
   .w-full { width: 100%; justify-content: center; margin-top: 8px; }
   .btn-email { display: block; width: 100%; margin-top: 12px; padding: 0; border: 0; background: none; color: var(--white); cursor: pointer; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
   .btn-email:hover { color: var(--accent-primary); }
