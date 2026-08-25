@@ -14,62 +14,66 @@
 </form>
 
 <script is:inline>
-  document.addEventListener('submit', (event) => {
-    const form = event.target;
-    if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-contact-form')) return;
+  (function () {
+    'use strict';
 
-    event.preventDefault();
-    const status = form.querySelector('.form-status');
-    const data = new FormData(form);
+    function handleSubmit(event) {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-contact-form')) return;
 
-    if (data.get('_honey') || !form.reportValidity()) return;
+      event.preventDefault();
+      const status = form.querySelector('.form-status');
+      const data = new FormData(form);
 
-    const message = [
-      'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
-      `Nome: ${data.get('name')}`,
-      `Empresa: ${data.get('company')}`,
-      `E-mail: ${data.get('email')}`,
-      `Mensagem: ${data.get('message')}`,
-    ].join('\n');
+      if (data.get('_honey') || !form.reportValidity()) return;
 
-    if (status instanceof HTMLElement) {
-      status.textContent = 'Redirecionando para o WhatsApp…';
+      const message = [
+        'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
+        `Nome: ${data.get('name')}`,
+        `Empresa: ${data.get('company')}`,
+        `E-mail: ${data.get('email')}`,
+        `Mensagem: ${data.get('message')}`,
+      ].join('\n');
+
+      if (status instanceof HTMLElement) {
+        status.textContent = 'Redirecionando para o WhatsApp…';
+      }
+
+      window.location.href = `https://wa.me/557192858821?text=${encodeURIComponent(message)}`;
     }
 
-    // Usar window.location.href em vez de window.open evita que o navegador bloqueie como pop-up
-    window.location.href = `https://wa.me/557192858821?text=${encodeURIComponent(message)}`;
-  });
+    function handleEmailClick(event) {
+      const emailButton = event.target.closest('[data-email-contact]');
+      if (!emailButton) return;
 
-  document.addEventListener('click', (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLElement)) return;
+      const form = emailButton.closest('[data-contact-form]');
+      if (!(form instanceof HTMLFormElement)) return;
 
-    const emailButton = target.closest('[data-email-contact]');
-    if (!emailButton) return;
+      const status = form.querySelector('.form-status');
+      const data = new FormData(form);
 
-    const form = emailButton.closest('[data-contact-form]');
-    if (!(form instanceof HTMLFormElement)) return;
+      if (data.get('_honey') || !form.reportValidity()) return;
 
-    const status = form.querySelector('.form-status');
-    const data = new FormData(form);
+      const body = [
+        'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
+        '',
+        `Nome: ${data.get('name')}`,
+        `Empresa: ${data.get('company')}`,
+        `E-mail: ${data.get('email')}`,
+        `Mensagem: ${data.get('message')}`,
+      ].join('\n');
 
-    if (data.get('_honey') || !form.reportValidity()) return;
+      if (status instanceof HTMLElement) {
+        status.textContent = 'Abrindo seu cliente de e-mail…';
+      }
 
-    const body = [
-      'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
-      '',
-      `Nome: ${data.get('name')}`,
-      `Empresa: ${data.get('company')}`,
-      `E-mail: ${data.get('email')}`,
-      `Mensagem: ${data.get('message')}`,
-    ].join('\n');
-
-    if (status instanceof HTMLElement) {
-      status.textContent = 'Abrindo seu cliente de e-mail…';
+      window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
     }
 
-    window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
-  });
+    // FASE DE CAPTURA (true) — captura o submit ANTES que ele chegue ao form
+    document.addEventListener('submit', handleSubmit, true);
+    document.addEventListener('click', handleEmailClick);
+  })();
 </script>
 
 <style>
