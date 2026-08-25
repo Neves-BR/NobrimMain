@@ -23,13 +23,12 @@
 
     if (!form.reportValidity()) return;
 
-    // Linhas em branco ('') criam parágrafos adicionais no WhatsApp
     const message = [
       'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
-      `*Nome:* ${data.get('name')}`,
-      `*Empresa:* ${data.get('company')}`,
-      `*E-mail:* ${data.get('email')}`,
-      `*Mensagem:* ${data.get('message')}`,
+      `Nome: ${data.get('name')}`,
+      `Empresa: ${data.get('company')}`,
+      `E-mail: ${data.get('email')}`,
+      `Mensagem: ${data.get('message')}`,
     ].join('\n');
 
     if (status instanceof HTMLElement) {
@@ -58,11 +57,8 @@
       'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
       '',
       `Nome: ${data.get('name')}`,
-      '',
       `Empresa: ${data.get('company')}`,
-      '',
       `E-mail: ${data.get('email')}`,
-      '',
       `Mensagem: ${data.get('message')}`,
     ].join('\n');
 
