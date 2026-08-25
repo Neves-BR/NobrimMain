@@ -3,10 +3,22 @@
 
 <form class="contact-form" data-contact-form>
   <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
-  <div class="form-group"><label for="name">Nome completo</label><input type="text" id="name" name="name" autocomplete="name" required /></div>
-  <div class="form-group"><label for="company">Empresa</label><input type="text" id="company" name="company" autocomplete="organization" required /></div>
-  <div class="form-group"><label for="email">E-mail corporativo</label><input type="email" id="email" name="email" autocomplete="email" required /></div>
-  <div class="form-group"><label for="message">Como podemos ajudar?</label><textarea id="message" name="message" rows="4" required></textarea></div>
+  <div class="form-group">
+    <label for="name">Nome completo</label>
+    <input type="text" id="name" name="name" autocomplete="name" required />
+  </div>
+  <div class="form-group">
+    <label for="company">Empresa</label>
+    <input type="text" id="company" name="company" autocomplete="organization" required />
+  </div>
+  <div class="form-group">
+    <label for="email">E-mail corporativo</label>
+    <input type="email" id="email" name="email" autocomplete="email" required />
+  </div>
+  <div class="form-group">
+    <label for="message">Como podemos ajudar?</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+  </div>
   <p class="form-notice">Ao continuar, o WhatsApp da Nobrim será aberto para concluir o atendimento.</p>
   <p class="form-status" aria-live="polite"></p>
   <button type="submit" class="btn-primary w-full">Continuar para o WhatsApp</button>
@@ -14,40 +26,63 @@
 </form>
 
 <script>
-  const form = document.querySelector('[data-contact-form]');
-  const status = form?.querySelector('.form-status');
-  const emailButton = form?.querySelector('[data-email-contact]');
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!(form instanceof HTMLFormElement) || !(status instanceof HTMLElement)) return;
-    const data = new FormData(form);
-    if (data.get('_honey') || !form.reportValidity()) return;
-    const message = [
-      'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
-      `Nome: ${data.get('name')}`,
-      `Empresa: ${data.get('company')}`,
-      `E-mail: ${data.get('email')}`,
-      `Mensagem: ${data.get('message')}`,
-    ].join('\n');
-    status.textContent = 'Abrindo o WhatsApp em uma nova aba…';
-    window.open(`https://wa.me/557192858821?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
-  });
+  function setupContactForm() {
+    const form = document.querySelector('[data-contact-form]');
+    if (!(form instanceof HTMLFormElement)) return;
 
-  emailButton?.addEventListener('click', () => {
-    if (!(form instanceof HTMLFormElement) || !(status instanceof HTMLElement)) return;
-    const data = new FormData(form);
-    if (data.get('_honey') || !form.reportValidity()) return;
-    const body = [
-      'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
-      '',
-      `Nome: ${data.get('name')}`,
-      `Empresa: ${data.get('company')}`,
-      `E-mail: ${data.get('email')}`,
-      `Mensagem: ${data.get('message')}`,
-    ].join('\n');
-    status.textContent = 'Abrindo seu cliente de e-mail…';
-    window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
-  });
+    const status = form.querySelector('.form-status');
+    const emailButton = form.querySelector('[data-email-contact]');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+
+      if (data.get('_honey') || !form.reportValidity()) return;
+
+      const message = [
+        'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
+        `Nome: ${data.get('name')}`,
+        `Empresa: ${data.get('company')}`,
+        `E-mail: ${data.get('email')}`,
+        `Mensagem: ${data.get('message')}`,
+      ].join('\n');
+
+      if (status instanceof HTMLElement) {
+        status.textContent = 'Abrindo o WhatsApp em uma nova aba…';
+      }
+
+      window.open(`https://wa.me/557192858821?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    });
+
+    emailButton?.addEventListener('click', () => {
+      const data = new FormData(form);
+
+      if (data.get('_honey') || !form.reportValidity()) return;
+
+      const body = [
+        'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
+        '',
+        `Nome: ${data.get('name')}`,
+        `Empresa: ${data.get('company')}`,
+        `E-mail: ${data.get('email')}`,
+        `Mensagem: ${data.get('message')}`,
+      ].join('\n');
+
+      if (status instanceof HTMLElement) {
+        status.textContent = 'Abrindo seu cliente de e-mail…';
+      }
+
+      window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
+    });
+  }
+
+  // Suporte a carregamento inicial e navegação do Astro (View Transitions)
+  document.addEventListener('astro:page-load', setupContactForm);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupContactForm);
+  } else {
+    setupContactForm();
+  }
 </script>
 
 <style>
