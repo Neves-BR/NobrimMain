@@ -25,64 +25,71 @@
   <button type="button" class="btn-email" data-email-contact>Prefiro enviar um e-mail</button>
 </form>
 
-<script>
-  function setupContactForm() {
-    const form = document.querySelector('[data-contact-form]');
-    if (!(form instanceof HTMLFormElement)) return;
+<script is:inline>
+  document.addEventListener('click', function (e) {
+    var form = e.target.closest('[data-contact-form]');
+    if (!form) return;
 
-    const status = form.querySelector('.form-status');
-    const emailButton = form.querySelector('[data-email-contact]');
+    var status = form.querySelector('.form-status');
+    var isSubmit = e.target.matches('button[type="submit"], button[type="submit"] *');
+    var isEmail = e.target.matches('[data-email-contact], [data-email-contact] *');
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const data = new FormData(form);
+    if (!isSubmit && !isEmail) return;
 
-      if (data.get('_honey') || !form.reportValidity()) return;
+    e.preventDefault();
 
-      const message = [
+    var name = form.querySelector('#name').value.trim();
+    var company = form.querySelector('#company').value.trim();
+    var email = form.querySelector('#email').value.trim();
+    var messageText = form.querySelector('#message').value.trim();
+    var honey = form.querySelector('.honeypot').value;
+
+    if (honey) return;
+
+    if (!name || !company || !email || !messageText) {
+      if (status) {
+        status.style.display = 'block';
+        status.textContent = 'Por favor, preencha todos os campos do formulário.';
+      }
+      form.reportValidity();
+      return;
+    }
+
+    if (isSubmit) {
+      var text = [
         'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
-        `Nome: ${data.get('name')}`,
-        `Empresa: ${data.get('company')}`,
-        `E-mail: ${data.get('email')}`,
-        `Mensagem: ${data.get('message')}`,
+        'Nome: ' + name,
+        'Empresa: ' + company,
+        'E-mail: ' + email,
+        'Mensagem: ' + messageText
       ].join('\n');
 
-      if (status instanceof HTMLElement) {
-        status.textContent = 'Abrindo o WhatsApp em uma nova aba…';
+      if (status) {
+        status.style.display = 'block';
+        status.textContent = 'Redirecionando para o WhatsApp…';
       }
 
-      window.open(`https://wa.me/557192858821?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
-    });
+      window.location.href = 'https://wa.me/557192858821?text=' + encodeURIComponent(text);
+    }
 
-    emailButton?.addEventListener('click', () => {
-      const data = new FormData(form);
-
-      if (data.get('_honey') || !form.reportValidity()) return;
-
-      const body = [
+    if (isEmail) {
+      var body = [
         'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
         '',
-        `Nome: ${data.get('name')}`,
-        `Empresa: ${data.get('company')}`,
-        `E-mail: ${data.get('email')}`,
-        `Mensagem: ${data.get('message')}`,
+        'Nome: ' + name,
+        'Empresa: ' + company,
+        'E-mail: ' + email,
+        'Mensagem: ' + messageText
       ].join('\n');
 
-      if (status instanceof HTMLElement) {
+      if (status) {
+        status.style.display = 'block';
         status.textContent = 'Abrindo seu cliente de e-mail…';
       }
 
-      window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
-    });
-  }
-
-  // Suporte a carregamento inicial e navegação do Astro (View Transitions)
-  document.addEventListener('astro:page-load', setupContactForm);
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupContactForm);
-  } else {
-    setupContactForm();
-  }
+      window.location.href = 'mailto:contato@nobrim.com.br?subject=' + encodeURIComponent('Contato pelo site Nobrim') + '&body=' + encodeURIComponent(body);
+    }
+  });
 </script>
 
 <style>
