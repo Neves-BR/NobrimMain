@@ -1,6 +1,5 @@
 ---
 ---
-
 <form class="contact-form" data-contact-form>
   <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
   <div class="form-group"><label for="name">Nome completo</label><input type="text" id="name" name="name" autocomplete="name" required /></div>
@@ -9,7 +8,7 @@
   <div class="form-group"><label for="message">Como podemos ajudar?</label><textarea id="message" name="message" rows="4" required></textarea></div>
   <p class="form-notice">Ao continuar, o WhatsApp da Nobrim será aberto para concluir o atendimento.</p>
   <p class="form-status" aria-live="polite"></p>
-  <button type="submit" class="btn-primary w-full">Continuar para o WhatsApp</button>
+  <button type="submit" class="btn-primary w-full" data-wa-submit>Continuar para o WhatsApp</button>
   <button type="button" class="btn-email" data-email-contact>Prefiro enviar um e-mail</button>
 </form>
 
@@ -17,15 +16,19 @@
   (function () {
     'use strict';
 
-    function handleSubmit(event) {
-      const form = event.target;
-      if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-contact-form')) return;
-
-      event.preventDefault();
-      const status = form.querySelector('.form-status');
+    function getFormData(form) {
       const data = new FormData(form);
+      if (data.get('_honey')) return null;
+      if (!form.reportValidity()) return null;
+      return data;
+    }
 
-      if (data.get('_honey') || !form.reportValidity()) return;
+    function redirectToWhatsApp(form) {
+      const data = getFormData(form);
+      if (!data) return;
+
+      const status = form.querySelector('.form-status');
+      if (status) status.textContent = 'Redirecionando para o WhatsApp…';
 
       const message = [
         'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
@@ -35,24 +38,15 @@
         `Mensagem: ${data.get('message')}`,
       ].join('\n');
 
-      if (status instanceof HTMLElement) {
-        status.textContent = 'Redirecionando para o WhatsApp…';
-      }
-
       window.location.href = `https://wa.me/557192858821?text=${encodeURIComponent(message)}`;
     }
 
-    function handleEmailClick(event) {
-      const emailButton = event.target.closest('[data-email-contact]');
-      if (!emailButton) return;
-
-      const form = emailButton.closest('[data-contact-form]');
-      if (!(form instanceof HTMLFormElement)) return;
+    function redirectToEmail(form) {
+      const data = getFormData(form);
+      if (!data) return;
 
       const status = form.querySelector('.form-status');
-      const data = new FormData(form);
-
-      if (data.get('_honey') || !form.reportValidity()) return;
+      if (status) status.textContent = 'Abrindo seu cliente de e-mail…';
 
       const body = [
         'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
@@ -63,16 +57,47 @@
         `Mensagem: ${data.get('message')}`,
       ].join('\n');
 
-      if (status instanceof HTMLElement) {
-        status.textContent = 'Abrindo seu cliente de e-mail…';
-      }
-
       window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
     }
 
-    // FASE DE CAPTURA (true) — captura o submit ANTES que ele chegue ao form
-    document.addEventListener('submit', handleSubmit, true);
-    document.addEventListener('click', handleEmailClick);
+    function init() {
+      const form = document.querySelector('[data-contact-form]');
+      if (!form) return;
+
+      // Camada 1: listener direto no form (mais confiável que document)
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        redirectToWhatsApp(form);
+      });
+
+      // Camada 2: fallback no botão de submit (clique direto)
+      const waBtn = form.querySelector('[data-wa-submit]');
+      if (waBtn) {
+        waBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          redirectToWhatsApp(form);
+        });
+      }
+
+      // E-mail
+      const emailBtn = form.querySelector('[data-email-contact]');
+      if (emailBtn) {
+        emailBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          redirectToEmail(form);
+        });
+      }
+    }
+
+    // Garante que o DOM está pronto
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   })();
 </script>
 
