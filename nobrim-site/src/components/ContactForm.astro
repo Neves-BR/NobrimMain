@@ -3,22 +3,10 @@
 
 <form class="contact-form" data-contact-form>
   <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
-  <div class="form-group">
-    <label for="name">Nome completo</label>
-    <input type="text" id="name" name="name" autocomplete="name" required />
-  </div>
-  <div class="form-group">
-    <label for="company">Empresa</label>
-    <input type="text" id="company" name="company" autocomplete="organization" required />
-  </div>
-  <div class="form-group">
-    <label for="email">E-mail corporativo</label>
-    <input type="email" id="email" name="email" autocomplete="email" required />
-  </div>
-  <div class="form-group">
-    <label for="message">Como podemos ajudar?</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-  </div>
+  <div class="form-group"><label for="name">Nome completo</label><input type="text" id="name" name="name" autocomplete="name" required /></div>
+  <div class="form-group"><label for="company">Empresa</label><input type="text" id="company" name="company" autocomplete="organization" required /></div>
+  <div class="form-group"><label for="email">E-mail corporativo</label><input type="email" id="email" name="email" autocomplete="email" required /></div>
+  <div class="form-group"><label for="message">Como podemos ajudar?</label><textarea id="message" name="message" rows="4" required></textarea></div>
   <p class="form-notice">Ao continuar, o WhatsApp da Nobrim será aberto para concluir o atendimento.</p>
   <p class="form-status" aria-live="polite"></p>
   <button type="submit" class="btn-primary w-full">Continuar para o WhatsApp</button>
@@ -26,69 +14,61 @@
 </form>
 
 <script is:inline>
-  document.addEventListener('click', function (e) {
-    var form = e.target.closest('[data-contact-form]');
-    if (!form) return;
+  document.addEventListener('submit', (event) => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-contact-form')) return;
 
-    var status = form.querySelector('.form-status');
-    var isSubmit = e.target.matches('button[type="submit"], button[type="submit"] *');
-    var isEmail = e.target.matches('[data-email-contact], [data-email-contact] *');
+    event.preventDefault();
+    const status = form.querySelector('.form-status');
+    const data = new FormData(form);
 
-    if (!isSubmit && !isEmail) return;
+    if (data.get('_honey') || !form.reportValidity()) return;
 
-    e.preventDefault();
+    const message = [
+      'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
+      `Nome: ${data.get('name')}`,
+      `Empresa: ${data.get('company')}`,
+      `E-mail: ${data.get('email')}`,
+      `Mensagem: ${data.get('message')}`,
+    ].join('\n');
 
-    var name = form.querySelector('#name').value.trim();
-    var company = form.querySelector('#company').value.trim();
-    var email = form.querySelector('#email').value.trim();
-    var messageText = form.querySelector('#message').value.trim();
-    var honey = form.querySelector('.honeypot').value;
-
-    if (honey) return;
-
-    if (!name || !company || !email || !messageText) {
-      if (status) {
-        status.style.display = 'block';
-        status.textContent = 'Por favor, preencha todos os campos do formulário.';
-      }
-      form.reportValidity();
-      return;
+    if (status instanceof HTMLElement) {
+      status.textContent = 'Redirecionando para o WhatsApp…';
     }
 
-    if (isSubmit) {
-      var text = [
-        'Olá! Vim pelo site da Nobrim e gostaria de solicitar um contato especializado.',
-        'Nome: ' + name,
-        'Empresa: ' + company,
-        'E-mail: ' + email,
-        'Mensagem: ' + messageText
-      ].join('\n');
+    // Usar window.location.href em vez de window.open evita que o navegador bloqueie como pop-up
+    window.location.href = `https://wa.me/557192858821?text=${encodeURIComponent(message)}`;
+  });
 
-      if (status) {
-        status.style.display = 'block';
-        status.textContent = 'Redirecionando para o WhatsApp…';
-      }
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
 
-      window.location.href = 'https://wa.me/557192858821?text=' + encodeURIComponent(text);
+    const emailButton = target.closest('[data-email-contact]');
+    if (!emailButton) return;
+
+    const form = emailButton.closest('[data-contact-form]');
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const status = form.querySelector('.form-status');
+    const data = new FormData(form);
+
+    if (data.get('_honey') || !form.reportValidity()) return;
+
+    const body = [
+      'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
+      '',
+      `Nome: ${data.get('name')}`,
+      `Empresa: ${data.get('company')}`,
+      `E-mail: ${data.get('email')}`,
+      `Mensagem: ${data.get('message')}`,
+    ].join('\n');
+
+    if (status instanceof HTMLElement) {
+      status.textContent = 'Abrindo seu cliente de e-mail…';
     }
 
-    if (isEmail) {
-      var body = [
-        'Olá, gostaria de solicitar um contato especializado pela Nobrim.',
-        '',
-        'Nome: ' + name,
-        'Empresa: ' + company,
-        'E-mail: ' + email,
-        'Mensagem: ' + messageText
-      ].join('\n');
-
-      if (status) {
-        status.style.display = 'block';
-        status.textContent = 'Abrindo seu cliente de e-mail…';
-      }
-
-      window.location.href = 'mailto:contato@nobrim.com.br?subject=' + encodeURIComponent('Contato pelo site Nobrim') + '&body=' + encodeURIComponent(body);
-    }
+    window.location.href = `mailto:contato@nobrim.com.br?subject=${encodeURIComponent('Contato pelo site Nobrim')}&body=${encodeURIComponent(body)}`;
   });
 </script>
 
