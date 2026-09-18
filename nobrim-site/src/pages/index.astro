@@ -11,9 +11,15 @@ const homeSchema = {
       "@type": "Organization",
       "@id": "https://www.nobrim.com.br/#organization",
       "name": "Nobrim Soluções Corporativas",
+      "alternateName": "Nobrim Soluções", // NOVO: Nome alternativo/curto
       "url": "https://www.nobrim.com.br",
       "logo": "https://www.nobrim.com.br/logo-nobrim.webp",
+      "image": "https://www.nobrim.com.br/imagem-institucional.webp", // NOVO: Imagem genérica da empresa/sede
       "description": "Consultoria empresarial brasileira especializada em diagnóstico organizacional, gestão da qualidade, otimização de processos e gestão de performance.",
+      // NOVO: sameAs conecta as redes sociais e constrói o Knowledge Graph
+      "sameAs": [
+        "https://www.instagram.com/nobrimsolucoes/"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rua Francisco Drumond, 41, Centro",
@@ -51,12 +57,14 @@ const homeSchema = {
       "@id": "https://www.nobrim.com.br/#website",
       "url": "https://www.nobrim.com.br",
       "name": "Nobrim Soluções Corporativas",
+      "inLanguage": ["pt-BR", "en-US"], // NOVO: Declaração de idioma
       "publisher": {
         "@id": "https://www.nobrim.com.br/#organization"
-      }
+      },
     },
     {
       "@type": "FAQPage",
+      "@id": "https://www.nobrim.com.br/#faq", // NOVO: Boa prática ancorar o ID do FAQ
       "mainEntity": [
         {
           "@type": "Question",
